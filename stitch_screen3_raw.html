@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerMatch AI — Zen Precision Engine</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "zen-bg": "#0B0E17",
+            "zen-surface": "#111522",
+            "zen-card": "#151A29",
+            "zen-border": "#1F263B",
+            "zen-border-subtle": "#171D2F",
+            "zen-indigo": "#6366F1",
+            "zen-indigo-light": "#818CF8",
+            "zen-cyan": "#38BDF8",
+            "zen-emerald": "#34D399",
+            "zen-text-main": "#F1F5F9",
+            "zen-text-muted": "#94A3B8",
+            "zen-text-faint": "#64748B"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body { background-color: #0B0E17; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+    ::selection { background: #6366F1; color: #FFFFFF; }
+    .zen-tab-active { background: #1E253A; color: #FFFFFF; border-color: #313B59; }
+    .skill-chip {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .skill-chip.active {
+      background: rgba(99, 102, 241, 0.16);
+      border-color: #6366F1;
+      color: #FFFFFF;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.22);
+    }
+    .skill-chip.active .chip-icon {
+      color: #818CF8;
+    }
+    .skill-chip.active .chip-badge {
+      background: rgba(99, 102, 241, 0.3);
+      color: #C7D2FE;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.9; transform: scale(1); box-shadow: 0 0 10px rgba(56, 189, 248, 0.6); }
+      50% { opacity: 0.4; transform: scale(0.92); box-shadow: 0 0 2px rgba(56, 189, 248, 0.2); }
+    }
+    .cyan-live-pulse {
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+    .milestone-done {
+      text-decoration: line-through;
+      opacity: 0.55;
+    }
+  </style>
+<meta content="web_standard" name="shell-type"/></head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white">
+<!-- Minimal Precision Header -->
+<header class="sticky top-0 z-50 w-full bg-[#0B0E17]/90 backdrop-blur-md border-b border-zen-border">
+<div class="max-w-6xl mx-auto px-8 h-16 flex items-center justify-between gap-4">
+<!-- Logo -->
+<a class="flex items-center gap-3 group shrink-0" href="#">
+<div class="w-8 h-8 rounded-lg bg-zen-indigo/10 border border-zen-indigo/30 flex items-center justify-center text-zen-indigo-light group-hover:border-zen-indigo transition-colors">
+<span class="material-symbols-outlined text-[18px]">neurology</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-bold tracking-tight text-white text-base font-sans">CareerMatch</span>
+<span class="text-zen-text-faint font-semibold text-[10px] tracking-widest uppercase font-mono border-l border-zen-border pl-2">ZEN.v4</span>
+</div>
+</a>
+<!-- Live Research Running Indicator (Header Status Pill) -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-zen-surface border border-zen-border text-zen-cyan text-[11px] font-mono shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-cyan cyan-live-pulse"></span>
+<span class="tracking-wide">Live Research Layer Active</span>
+<span class="text-zen-text-faint text-[10px] hidden xl:inline font-mono">(Web Synthesis Engine v4.2)</span>
+</div>
+<!-- Clean Minimal Nav -->
+<nav class="hidden md:flex items-center gap-1 p-1 bg-zen-surface border border-zen-border rounded-lg text-xs font-medium text-zen-text-muted"><button class="px-3 py-1.5 rounded-md text-white bg-zen-card border border-zen-border shadow-sm transition-colors" id="nav-link-1" onclick="goToStage(1)" type="button">1. Intake</button>
+<button class="px-3 py-1.5 rounded-md hover:text-white hover:bg-zen-card/50 transition-colors" id="nav-link-2" onclick="goToStage(2)" type="button">2. Skills</button>
+<button class="px-3 py-1.5 rounded-md hover:text-white hover:bg-zen-card/50 transition-colors" id="nav-link-3" onclick="goToStage(3)" type="button">3. Careers</button>
+<button class="px-3 py-1.5 rounded-md hover:text-white hover:bg-zen-card/50 transition-colors" id="nav-link-4" onclick="goToStage(4)" type="button">4. Roadmap</button></nav>
+<!-- Action -->
+<div class="flex items-center gap-3 shrink-0">
+<span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px] font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-emerald animate-pulse"></span>
+Index Live
+</span>
+<button class="px-4 py-1.5 rounded-lg border border-zen-indigo/40 hover:border-zen-indigo bg-zen-indigo/10 hover:bg-zen-indigo/20 text-white text-xs font-semibold tracking-wide transition-all shadow-sm cursor-pointer" onclick="startAnalysisWorkflow()" type="button">Run Discovery ✨</button>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-12 pb-24 space-y-20"><div class="flex flex-col w-full">
+<!-- Progress Breadcrumb Stepper -->
+<section class="w-full mb-8">
+<div class="bg-surface-container-low rounded-xl p-4 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full">
+<!-- Step 1 Complete -->
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-surface hover:bg-surface-container transition-all group" href="#step-1">
+<span class="w-6 h-6 rounded-full bg-tertiary-container text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Step 1</span>
+<span class="font-label-md text-label-md text-on-surface truncate group-hover:text-primary transition-colors">1. Intake</span>
+</div>
+</a>
+<!-- Step 2 Complete -->
+<a class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-surface hover:bg-surface-container transition-all group" href="#step-2">
+<span class="w-6 h-6 rounded-full bg-tertiary-container text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Step 2</span>
+<span class="font-label-md text-label-md text-on-surface truncate group-hover:text-primary transition-colors">2. Skills</span>
+</div>
+</a>
+<!-- Step 3 Active Purple -->
+<div class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-primary text-on-primary shadow-md">
+<span class="w-6 h-6 rounded-full bg-on-primary text-primary flex items-center justify-center shrink-0 font-label-sm text-label-sm font-bold">
+            3
+          </span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase tracking-wider font-bold">Current</span>
+<span class="font-label-md text-label-md font-bold text-on-primary truncate">3. Careers</span>
+</div>
+</div>
+<!-- Step 4 Upcoming -->
+<div class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-surface opacity-60">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-outline flex items-center justify-center shrink-0 font-label-sm text-label-sm">
+            4
+          </span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Next</span>
+<span class="font-label-md text-label-md text-on-surface-variant truncate">4. Roadmap</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stage Header & Editorial Narrative -->
+<section class="w-full mb-8 relative">
+<div class="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 pb-2">
+<div class="max-w-3xl space-y-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-semibold tracking-wider uppercase">
+<span class="material-symbols-outlined text-sm">neurology</span>
+          Stage 3 Analysis Complete · 3 Top Pathways Identified
+        </div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+          Explore careers that match your skills
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          We matched your 6 identified skills against real industry roles. Here are 3 top recommended paths based on what you've done, not just a job title.
+        </p>
+</div>
+<!-- Quick Action Counter Badge -->
+<div class="bg-surface-container-high p-4 rounded-xl flex items-center gap-4 shrink-0 shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">insights</span>
+</div>
+<div>
+<div class="font-data-metric text-data-metric text-on-surface">94.2%</div>
+<div class="font-body-sm text-body-sm text-outline">Mean Vector Affinity</div>
+</div>
+</div>
+</div>
+<!-- Active Profile Ribbon -->
+<div class="mt-6 p-4 rounded-xl bg-surface-container flex flex-wrap items-center justify-between gap-3 shadow-sm">
+<div class="flex flex-wrap items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-tertiary">check_circle</span>
+          Based on:
+        </span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">Budget Tracking</span>
+<span class="text-outline">·</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">Volunteer Coordination</span>
+<span class="text-outline">·</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">Python Scripting</span>
+<span class="text-outline">·</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">Survey Design</span>
+<span class="text-outline">·</span>
+<span class="px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-body-sm text-body-sm">Stakeholder Presentation</span>
+</div>
+<a class="inline-flex items-center gap-1 text-primary hover:text-primary-fixed transition-colors font-label-md text-label-md px-3 py-1.5 rounded-lg hover:bg-surface-container-high" href="#step-2">
+<span>Edit Skills</span>
+<span class="material-symbols-outlined text-base">edit</span>
+</a>
+</div>
+</section>
+<!-- Transparent Scoring Notice Banner -->
+<section class="w-full mb-10">
+<div class="rounded-xl bg-surface-container-low p-5 shadow-sm flex items-start sm:items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-secondary shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">policy</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-secondary font-semibold uppercase tracking-wider mb-0.5">
+          Transparent Scoring &amp; Evaluation Notice
+        </div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+<strong class="text-on-surface font-medium">Plain-Language Matching:</strong> Recommendations are calculated from skill overlap and transferable activity vectors from your actual project description. They represent exploratory directions, not hiring guarantees.
+        </p>
+</div>
+<div class="hidden md:flex items-center text-outline font-label-sm text-label-sm bg-surface-container px-3 py-1.5 rounded-lg shrink-0">
+        Engine v4.2 · Deterministic
+      </div>
+</div>
+</section>
+<!-- 3 Standardized Career Match Cards -->
+<section class="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+<!-- Card 1: Project Coordinator & Operations Lead -->
+<article class="flex flex-col bg-surface-container-low rounded-xl p-6 shadow-md hover:shadow-xl hover:bg-surface-container transition-all relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-tertiary via-primary to-primary-container opacity-80"></div>
+<!-- Card Header & Badge -->
+<div class="flex items-start justify-between gap-3 mb-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm uppercase tracking-wide font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Top Transferable Match
+        </span>
+<span class="text-tertiary font-data-metric text-data-metric">96% Fit</span>
+</div>
+<div class="mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2 group-hover:text-primary transition-colors">
+          Project Coordinator &amp; Operations Lead
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant min-h-[44px]">
+          Help cross-functional teams organize sprints, manage budgets, track milestone progress, and coordinate event logistics.
+        </p>
+</div>
+<!-- Visual Context Placeholder -->
+<div class="mb-5 rounded-lg overflow-hidden bg-surface-container-high h-28 relative">
+<div class="bg-cover bg-center w-full h-full opacity-70 group-hover:scale-105 transition-transform duration-500" data-alt="Modern collaborative open operations room with warm focused task lighting, organized acrylic planning boards, clean wooden desks, and subtle electric violet ambient reflections illustrating structured project workflow." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDI_UoNasXz2HifVTCg72E0h8PqwCC3HEaRXNNERCHs_gBHgtmhT7kRcnzhAWBHa26PmaNFU5AJlNv9Skeka7iJ-BEztpyhPvuplD4eaq2pJ9FL4oKaI8QoPZuKO7sc-mjI3PjpNpKD4VdSco-97ihgIxulZ5b_YTxJepnTdHJT_Ik-wAwWQ5DvNPQk2PA5KzeuXDL5DH0GxoUTzj1Hgr4SfeoE4t3c1Z5tIRCq-_Y')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-3 right-3 flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span class="bg-surface/80 backdrop-blur px-2 py-0.5 rounded">High Market Demand</span>
+<span class="text-primary-fixed bg-surface/80 backdrop-blur px-2 py-0.5 rounded">$68,000 - $84,000</span>
+</div>
+</div>
+<!-- Why it was suggested block -->
+<div class="p-3.5 rounded-lg bg-surface-container mb-5">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider mb-1.5">
+<span class="material-symbols-outlined text-sm">psychology</span>
+          Why it was suggested
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface italic">
+          "Your experience directly demonstrates coordinating 18 facilitators, tracking a $4,500 budget in spreadsheets, and organizing a 120-person multi-day sprint."
+        </p>
+</div>
+<!-- Existing Skills -->
+<div class="mb-4">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2 font-bold">
+          Relevant Existing Skills
+        </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Event Logistics</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Volunteer Coordination</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Budget Tracking</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Stakeholder Presentation</span>
+</div>
+</div>
+<!-- Skills to develop -->
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2 font-bold">
+          Skills to Develop (Roadmap Prep)
+        </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface text-on-surface-variant font-body-sm text-body-sm">
+            JIRA / Asana workflows
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface text-on-surface-variant font-body-sm text-body-sm">
+            Risk mitigation frameworks
+          </span>
+</div>
+</div>
+<!-- Action Button (Min 44px height for accessibility) -->
+<div class="mt-auto pt-2">
+<a class="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary hover:bg-primary-fixed text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all active:scale-[0.99]" href="#step-4">
+<span>Explore this career &amp; view learning plan</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 2: Associate Data & Insights Analyst -->
+<article class="flex flex-col bg-surface-container-low rounded-xl p-6 shadow-md hover:shadow-xl hover:bg-surface-container transition-all relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary-container to-secondary opacity-80"></div>
+<!-- Card Header & Badge -->
+<div class="flex items-start justify-between gap-3 mb-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm uppercase tracking-wide font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          Analytical Growth Match
+        </span>
+<span class="text-primary font-data-metric text-data-metric">91% Fit</span>
+</div>
+<div class="mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2 group-hover:text-primary transition-colors">
+          Associate Data &amp; Insights Analyst
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant min-h-[44px]">
+          Transform raw organizational data, survey responses, and operational metrics into actionable executive dashboards and insights.
+        </p>
+</div>
+<!-- Visual Context Placeholder -->
+<div class="mb-5 rounded-lg overflow-hidden bg-surface-container-high h-28 relative">
+<div class="bg-cover bg-center w-full h-full opacity-70 group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic computational data workspace display showing soft glowing cyan and purple telemetry plots, statistical correlation charts, and glass monitor screens in an obsidian tech laboratory." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCC-xMYhmNHUn2BbhF2_uVRp0Up8NRVlvYzg88-4krAlprkjjfHxHf9JauZZ8VW5T8m6oTL-i22KXZh6mzhDvRlApI6C5K8vKvya9z9Pj6hE9aV0DsiLiUW0l5-dwD_8iHi7NhHxdXtLPtU2VZNsISgN4sOHbEPoJ1j3N0lWbKGkQyAT2tggwv1F6gSMA7ZGNv3eW6XWYJRVJyoFsDP2-Y4LMhXQV3EC2_FQED-g98')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-3 right-3 flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span class="bg-surface/80 backdrop-blur px-2 py-0.5 rounded">High Growth Trajectory</span>
+<span class="text-primary-fixed bg-surface/80 backdrop-blur px-2 py-0.5 rounded">$74,000 - $92,000</span>
+</div>
+</div>
+<!-- Why it was suggested block -->
+<div class="p-3.5 rounded-lg bg-surface-container mb-5">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider mb-1.5">
+<span class="material-symbols-outlined text-sm">psychology</span>
+          Why it was suggested
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface italic">
+          "Your description includes building pivot tables in Google Sheets, collecting survey feedback, and synthesizing metric takeaways for faculty stakeholders."
+        </p>
+</div>
+<!-- Existing Skills -->
+<div class="mb-4">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2 font-bold">
+          Relevant Existing Skills
+        </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Spreadsheet Pivot Tables</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Quantitative Survey Analysis</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Stakeholder Reporting</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Python Scripting</span>
+</div>
+</div>
+<!-- Skills to develop -->
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2 font-bold">
+          Skills to Develop (Roadmap Prep)
+        </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface text-on-surface-variant font-body-sm text-body-sm">
+            SQL database querying
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface text-on-surface-variant font-body-sm text-body-sm">
+            BI Dashboarding (Tableau/PowerBI)
+          </span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-auto pt-2">
+<a class="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary hover:bg-primary-fixed text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all active:scale-[0.99]" href="#step-4">
+<span>Explore this career &amp; view learning plan</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 3: Community Operations & Program Specialist -->
+<article class="flex flex-col bg-surface-container-low rounded-xl p-6 shadow-md hover:shadow-xl hover:bg-surface-container transition-all relative overflow-hidden group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary to-tertiary opacity-80"></div>
+<!-- Card Header & Badge -->
+<div class="flex items-start justify-between gap-3 mb-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm uppercase tracking-wide font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          People &amp; Automation Match
+        </span>
+<span class="text-secondary font-data-metric text-data-metric">88% Fit</span>
+</div>
+<div class="mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-2 group-hover:text-primary transition-colors">
+          Community Operations &amp; Program Specialist
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant min-h-[44px]">
+          Build and run digital community ecosystems, automate communication workflows, and engage volunteer or user cohorts.
+        </p>
+</div>
+<!-- Visual Context Placeholder -->
+<div class="mb-5 rounded-lg overflow-hidden bg-surface-container-high h-28 relative">
+<div class="bg-cover bg-center w-full h-full opacity-70 group-hover:scale-105 transition-transform duration-500" data-alt="Dynamic community hub creative studio with participants actively collaborating, ambient digital communication boards, sleek laptops showing chat bots and workflow automation maps." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjlCWRZDn_753VqhL-lEFIcoo2nitOUx4xSI0TrgZG17yEII04yQleYp_3QiYIFRNZb7OXtxntDwi0ng4oqXFR-Ovzfvr6ne4h9SvZJY1d7tlFGOZpfPqE6RTZ0RY_1_9KRQtPSgMMC4kNFins-0i-sZA1QTVVkBmyMLncJQ_4BOYtC9a2BGiwH4W7RX6FCOfQKf7H8PCovG8EFFx2AhHstBhG2YK5PPEhsFZG1Rs')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-3 right-3 flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+<span class="bg-surface/80 backdrop-blur px-2 py-0.5 rounded">High Remote Flexibility</span>
+<span class="text-primary-fixed bg-surface/80 backdrop-blur px-2 py-0.5 rounded">$65,000 - $80,000</span>
+</div>
+</div>
+<!-- Why it was suggested block -->
+<div class="p-3.5 rounded-lg bg-surface-container mb-5">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider mb-1.5">
+<span class="material-symbols-outlined text-sm">psychology</span>
+          Why it was suggested
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface italic">
+          "Your project shows combining custom Python Discord automation bots with hands-on facilitator coordination and community feedback loops."
+        </p>
+</div>
+<!-- Existing Skills -->
+<div class="mb-4">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2 font-bold">
+          Relevant Existing Skills
+        </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Community Engagement</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Bot Automation (Python)</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Volunteer Facilitation</span>
+<span class="px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium">Feedback Synthesis</span>
+</div>
+</div>
+<!-- Skills to develop -->
+<div class="mb-6">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-2 font-bold">
+          Skills to Develop (Roadmap Prep)
+        </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2.5 py-1 rounded bg-surface text-on-surface-variant font-body-sm text-body-sm">
+            Member retention analytics
+          </span>
+<span class="px-2.5 py-1 rounded bg-surface text-on-surface-variant font-body-sm text-body-sm">
+            Scaled onboarding pipelines
+          </span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-auto pt-2">
+<a class="w-full min-h-[44px] px-4 py-3 rounded-lg bg-primary hover:bg-primary-fixed text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all active:scale-[0.99]" href="#step-4">
+<span>Explore this career &amp; view learning plan</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</article>
+</section>
+<!-- Secondary Interactive Controls & Comparison Matrix -->
+<section class="w-full mb-12">
+<div class="bg-surface-container-low rounded-xl p-6 shadow-sm">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+            Evaluate Adjacent Career Trajectories
+          </h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Expand vectors to discover how your baseline unlocks adjacent hybrid specializations.
+          </p>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="min-h-[44px] px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-colors cursor-pointer w-full sm:w-auto" id="toggle-comparison-btn" onclick="toggleComparisonView()">
+<span class="material-symbols-outlined text-lg text-primary">view_column</span>
+<span id="comparison-btn-text">Compare roles side-by-side</span>
+</button>
+<button class="min-h-[44px] px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-colors cursor-pointer w-full sm:w-auto" id="toggle-adjacent-btn" onclick="toggleAdjacentRoles()">
+<span class="material-symbols-outlined text-lg text-secondary">tune</span>
+<span>View 2 additional adjacent roles</span>
+</button>
+</div>
+</div>
+<!-- Collapsible Side-by-Side Comparison Matrix -->
+<div class="hidden pt-6 mt-4" id="comparison-drawer">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface">
+<th class="p-3 text-outline font-label-md text-label-md">Evaluation Vector</th>
+<th class="p-3 text-on-surface font-label-md text-label-md">Project Coordinator</th>
+<th class="p-3 text-on-surface font-label-md text-label-md">Data &amp; Insights Analyst</th>
+<th class="p-3 text-on-surface font-label-md text-label-md">Community Operations</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr>
+<td class="p-3 font-medium text-on-surface-variant">Immediate Qualification</td>
+<td class="p-3 text-tertiary font-bold">82% ready now</td>
+<td class="p-3 text-primary font-bold">71% ready now</td>
+<td class="p-3 text-secondary font-bold">78% ready now</td>
+</tr>
+<tr>
+<td class="p-3 font-medium text-on-surface-variant">Time to Close Gap</td>
+<td class="p-3 text-on-surface">3-6 Weeks</td>
+<td class="p-3 text-on-surface">8-12 Weeks</td>
+<td class="p-3 text-on-surface">4-8 Weeks</td>
+</tr>
+<tr>
+<td class="p-3 font-medium text-on-surface-variant">Primary Tool Stack</td>
+<td class="p-3 text-on-surface">Asana, Excel, Notion, Miro</td>
+<td class="p-3 text-on-surface">Python, SQL, PowerBI, BigQuery</td>
+<td class="p-3 text-on-surface">Discord API, Zapier, Hubspot</td>
+</tr>
+<tr>
+<td class="p-3 font-medium text-on-surface-variant">Key Transfer Leverage</td>
+<td class="p-3 text-on-surface">Multi-day sprint coordination</td>
+<td class="p-3 text-on-surface">Quantitative survey analysis</td>
+<td class="p-3 text-on-surface">Bot scripting &amp; team moderation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Collapsible 2 Additional Adjacent Roles Drawer -->
+<div class="hidden pt-6 mt-4 grid grid-cols-1 md:grid-cols-2 gap-4" id="adjacent-roles-drawer">
+<!-- Adjacent 1 -->
+<div class="p-4 rounded-lg bg-surface">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Technical Product Specialist</span>
+<span class="text-outline font-label-sm text-label-sm">84% Match</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+            Bridge product development and client feedback using your Python script debugging and stakeholder presentation synthesis skills.
+          </p>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary">Key Gap: API documentation</span>
+<a class="text-primary hover:text-primary-fixed font-label-md text-label-md inline-flex items-center gap-1" href="#step-4">
+              Inspect Path <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Adjacent 2 -->
+<div class="p-4 rounded-lg bg-surface">
+<div class="flex items-center justify-between mb-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Customer Experience Lead</span>
+<span class="text-outline font-label-sm text-label-sm">82% Match</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+            Lead user retention operations by analyzing survey results and optimizing feedback channels for cross-functional teams.
+          </p>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary">Key Gap: Zendesk Admin &amp; NPS SLA</span>
+<a class="text-primary hover:text-primary-fixed font-label-md text-label-md inline-flex items-center gap-1" href="#step-4">
+              Inspect Path <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Flow Footer -->
+<section class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 pb-8">
+<a class="min-h-[44px] w-full sm:w-auto px-6 py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 transition-colors" href="#step-2">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+<span>Back to Review Skills</span>
+</a>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<span class="text-outline font-body-sm text-body-sm hidden md:inline">Select any career card to proceed to Stage 4</span>
+<a class="min-h-[44px] w-full sm:w-auto px-6 py-3 rounded-lg bg-primary hover:bg-primary-fixed text-on-primary font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-sm transition-all" href="#step-4">
+<span>Proceed to Step 4: Roadmap</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Legal & Research Compliance Disclaimer -->
+<aside class="w-full p-4 rounded-lg bg-surface text-center">
+<p class="font-body-sm text-body-sm text-outline max-w-4xl mx-auto">
+<strong>Informational Research Notice:</strong> CareerMatch AI generates match insights for educational and career discovery purposes only. Skill alignments are based on computational synthesis of public labor taxonomy data (O*NET 28.1 / ESCO v1.1) and user-supplied descriptions. They do not constitute formal employment guarantees, endorsements, or certifications.
+    </p>
+</aside>
+</div>
+<!-- Simple Interactive Toggle Scripts -->
+<script>
+  function toggleComparisonView() {
+    const drawer = document.getElementById('comparison-drawer');
+    const text = document.getElementById('comparison-btn-text');
+    if (!drawer) return;
+    const isHidden = drawer.classList.contains('hidden');
+    if (isHidden) {
+      drawer.classList.remove('hidden');
+      if (text) text.textContent = 'Hide comparison matrix';
+    } else {
+      drawer.classList.add('hidden');
+      if (text) text.textContent = 'Compare roles side-by-side';
+    }
+  }
+
+  function toggleAdjacentRoles() {
+    const drawer = document.getElementById('adjacent-roles-drawer');
+    if (!drawer) return;
+    drawer.classList.toggle('hidden');
+  }
+</script></main>
+<!-- Minimal Zen Precision Footer -->
+<footer class="w-full bg-[#090C14] border-t border-zen-border py-8 text-xs font-mono text-zen-text-faint">
+<div class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-zen-emerald"></span>
+<span class="text-zen-text-muted">CareerMatch AI</span>
+<span>— Zen Precision Architecture v4.2</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Taxonomy Index</a>
+<a class="hover:text-white transition-colors" href="#">SOC-2 Type II</a>
+<a class="hover:text-white transition-colors" href="#">Deterministic Models</a>
+</div>
+</div>
+</footer>
+<!-- Micro-Interactions Script -->
+<script>
+    function toggleAccordion(card) {
+      const content = card.querySelector('.acc-content');
+      const icon = card.querySelector('.acc-icon');
+      const isHidden = content.classList.contains('hidden');
+      
+      document.querySelectorAll('.acc-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.acc-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+      
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // Toggle sources drawer in Match cards
+    function toggleSourcesDrawer(panelId, btn) {
+      const panel = document.getElementById(panelId);
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (panel) {
+        const isHidden = panel.classList.contains('hidden');
+        if (isHidden) {
+          panel.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        } else {
+          panel.classList.add('hidden');
+          if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+      }
+    }
+
+    // Interactive Mark as complete for roadmap actions
+    function markMilestoneComplete(boxId, checkbox) {
+      const box = document.getElementById(boxId);
+      if (!box) return;
+      if (checkbox.checked) {
+        box.classList.add('milestone-done');
+      } else {
+        box.classList.remove('milestone-done');
+      }
+    }
+
+    function toggleWhatIf(checkbox) {
+      const knob = document.getElementById('toggle-knob');
+      const r30 = document.getElementById('r-30');
+      const r60 = document.getElementById('r-60');
+      const r90 = document.getElementById('r-90');
+      const r30Title = document.getElementById('r30-title');
+      const r60Title = document.getElementById('r60-title');
+      const r90Title = document.getElementById('r90-title');
+      const fit = document.getElementById('roadmap-fit');
+      const desc = document.getElementById('roadmap-desc');
+
+      if (checkbox.checked) {
+        knob.style.transform = 'translateX(12px)';
+        desc.textContent = "What-If Simulation: +Prompt Engineering & Cloud";
+        r30.textContent = "FastAPI & Vector DB integration";
+        if (r30Title) r30Title.textContent = "LangChain & ChromaDB Production";
+        r60.textContent = "Deploy production LLM Agent on AWS";
+        if (r60Title) r60Title.textContent = "AWS Bedrock & Serverless Orchestration";
+        r90.textContent = "Lead AI Systems Orchestration role";
+        if (r90Title) r90Title.textContent = "Full-Stack Agentic Portfolio Delivery";
+        fit.textContent = "92% → 99% (Hidden Top 1%)";
+      } else {
+        knob.style.transform = 'translateX(0px)';
+        desc.textContent = "Target: Senior Data Insights Analyst";
+        r30.textContent = "Production SQL indexing";
+        if (r30Title) r30Title.textContent = "Stanford CS145: Query Optimization";
+        r60.textContent = "A/B Hypothesis pipeline";
+        if (r60Title) r60Title.textContent = "Mode Advanced SQL Window Guide";
+        r90.textContent = "Verified Capstone PR";
+        if (r90Title) r90Title.textContent = "dbt Fundamentals & Capstone CI/CD";
+        fit.textContent = "88% → 96%";
+      }
+    }
+
+    // What-If Simulator Real-Time Engine
+    const BASE_ANALYST = 88.4;
+    const BASE_LXD = 81.0;
+    const BASE_COMM = 75.0;
+
+    function toggleBooster(button) {
+      const isActive = button.getAttribute('data-active') === 'true';
+      button.setAttribute('data-active', !isActive);
+      if (!isActive) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+      recalculateSimulation();
+    }
+
+    function recalculateSimulation() {
+      const chips = document.querySelectorAll('.skill-chip');
+      let addedScore = 0;
+      let addedLxd = 0;
+      let addedComm = 0;
+      let activeCount = 0;
+
+      chips.forEach(chip => {
+        if (chip.getAttribute('data-active') === 'true') {
+          activeCount++;
+          addedScore += parseFloat(chip.getAttribute('data-weight') || '0');
+          addedLxd += parseFloat(chip.getAttribute('data-lxd') || '0');
+          addedComm += parseFloat(chip.getAttribute('data-comm') || '0');
+        }
+      });
+
+      const finalScore = Math.min(99.4, BASE_ANALYST + addedScore);
+      const finalLxd = Math.min(98.5, BASE_LXD + addedLxd);
+      const finalComm = Math.min(97.0, BASE_COMM + addedComm);
+
+      // Update Top Dial & Badges
+      const scoreDisplay = document.getElementById('sim-score-display');
+      const dialCircle = document.getElementById('sim-dial-circle');
+      const dialPct = document.getElementById('sim-dial-pct');
+      const upliftBadge = document.getElementById('sim-uplift-badge');
+      const countDisplay = document.getElementById('sim-active-count');
+      const statusMsg = document.getElementById('sim-status-message');
+
+      scoreDisplay.textContent = finalScore.toFixed(1) + '%';
+      dialPct.textContent = Math.round(finalScore) + '%';
+
+      // SVG circumference is 2 * PI * 20 = ~125.66
+      const circumference = 125.66;
+      const offset = circumference - (finalScore / 100) * circumference;
+      dialCircle.style.strokeDashoffset = offset.toFixed(1);
+
+      if (addedScore > 0) {
+        upliftBadge.textContent = '+' + addedScore.toFixed(1) + '% boost';
+        upliftBadge.classList.remove('text-zen-text-faint');
+        upliftBadge.classList.add('text-zen-emerald');
+        countDisplay.textContent = activeCount + (activeCount === 1 ? ' skill active' : ' skills active');
+        statusMsg.textContent = `Active vectors boosted Data Analyst match to ${finalScore.toFixed(1)}%. LXD asymmetric fit scaled to ${finalLxd.toFixed(1)}%.`;
+      } else {
+        upliftBadge.textContent = '+0.0% boost';
+        countDisplay.textContent = '0 skills active';
+        statusMsg.textContent = "Select booster chips on the left to simulate incremental labor market qualification gains.";
+      }
+
+      // Update Simulator Role Bars
+      document.getElementById('sim-role-analyst').textContent = finalScore.toFixed(1) + '%';
+      document.getElementById('sim-bar-analyst').style.width = Math.min(100, finalScore) + '%';
+
+      document.getElementById('sim-role-lxd').textContent = finalLxd.toFixed(1) + '%';
+      document.getElementById('sim-bar-lxd').style.width = Math.min(100, finalLxd) + '%';
+
+      document.getElementById('sim-role-comm').textContent = finalComm.toFixed(1) + '%';
+      document.getElementById('sim-bar-comm').style.width = Math.min(100, finalComm) + '%';
+
+      // Also mirror subtle boost to Step 2 Pipeline Card for end-to-end cohesion
+      const cardPrimary = document.getElementById('card-match-primary');
+      const cardPrimaryBar = document.getElementById('card-bar-primary');
+      const cardLxd = document.getElementById('card-match-lxd');
+      const cardLxdBar = document.getElementById('card-bar-lxd');
+      const cardComm = document.getElementById('card-match-comm');
+      const cardCommBar = document.getElementById('card-bar-comm');
+
+      if (cardPrimary) {
+        cardPrimary.textContent = Math.round(finalScore) + '%';
+        cardPrimaryBar.style.width = Math.round(finalScore) + '%';
+      }
+      if (cardLxd) {
+        cardLxd.textContent = Math.round(finalLxd) + '%';
+        cardLxdBar.style.width = Math.round(finalLxd) + '%';
+      }
+      if (cardComm) {
+        cardComm.textContent = Math.round(finalComm) + '%';
+        cardCommBar.style.width = Math.round(finalComm) + '%';
+      }
+    }
+
+    function resetSimulator() {
+      const chips = document.querySelectorAll('.skill-chip');
+      chips.forEach(chip => {
+        chip.setAttribute('data-active', 'false');
+        chip.classList.remove('active');
+      });
+      recalculateSimulation();
+    }
+  </script>
+<script>
+function applyHeroPreset(presetName, skillsDescription) {
+  var input = document.getElementById('hero-vector-input');
+  if (input) {
+    input.value = skillsDescription;
+  }
+  var expPaste = document.getElementById('experience-paste');
+  if (expPaste) {
+    expPaste.value = presetName + ': ' + skillsDescription;
+  }
+  var skillInput = document.getElementById('skill-input');
+  if (skillInput) {
+    skillInput.placeholder = skillsDescription;
+  }
+  var intakeWrapper = document.getElementById('intake-wrapper');
+  if (intakeWrapper) {
+    intakeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+function handleHeroSynthesize() {
+  var intakeWrapper = document.getElementById('intake-wrapper');
+  if (intakeWrapper) {
+    intakeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (typeof triggerFindMatches === 'function') {
+    triggerFindMatches();
+  }
+}
+</script>
+<script>
+  function setWorkflowState(stateNum) {
+    const s1 = document.getElementById('workflow-state-1');
+    const s2 = document.getElementById('workflow-state-2');
+    const b1 = document.getElementById('btn-state-1');
+    const b2 = document.getElementById('btn-state-2');
+
+    if (stateNum === 1) {
+      if (s1) s1.classList.remove('hidden');
+      if (s2) s2.classList.add('hidden');
+      if (b1) {
+        b1.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zen-indigo text-white font-semibold shadow-sm transition-all flex items-center justify-center gap-2';
+      }
+      if (b2) {
+        b2.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg text-zen-text-muted hover:text-white hover:bg-zen-surface transition-all flex items-center justify-center gap-2';
+      }
+      if (s1) s1.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      if (s1) s1.classList.add('hidden');
+      if (s2) s2.classList.remove('hidden');
+      if (b2) {
+        b2.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zen-indigo text-white font-semibold shadow-sm transition-all flex items-center justify-center gap-2';
+      }
+      if (b1) {
+        b1.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg text-zen-text-muted hover:text-white hover:bg-zen-surface transition-all flex items-center justify-center gap-2';
+      }
+      if (s2) s2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function switchIntakeTab(tab) {
+    const cAdd = document.getElementById('tab-content-add');
+    const cPaste = document.getElementById('tab-content-paste');
+    const bAdd = document.getElementById('tab-btn-add');
+    const bPaste = document.getElementById('tab-btn-paste');
+    if (tab === 'add') {
+      if (cAdd) cAdd.classList.remove('hidden');
+      if (cPaste) cPaste.classList.add('hidden');
+      if (bAdd) {
+        bAdd.classList.add('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bAdd.classList.remove('text-zen-text-muted');
+      }
+      if (bPaste) {
+        bPaste.classList.remove('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bPaste.classList.add('text-zen-text-muted');
+      }
+    } else {
+      if (cAdd) cAdd.classList.add('hidden');
+      if (cPaste) cPaste.classList.remove('hidden');
+      if (bPaste) {
+        bPaste.classList.add('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bPaste.classList.remove('text-zen-text-muted');
+      }
+      if (bAdd) {
+        bAdd.classList.remove('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bAdd.classList.add('text-zen-text-muted');
+      }
+    }
+  }
+
+  function removeSkillItem(btn) {
+    const item = btn.closest('.skill-item');
+    if (item) {
+      item.remove();
+      const list = document.querySelectorAll('#active-skills-list .skill-item');
+      const countSpan = document.getElementById('skill-count');
+      if (countSpan) countSpan.textContent = list.length;
+    }
+  }
+
+  function addCustomSkill() {
+    const input = document.getElementById('skill-input');
+    if (!input || !input.value.trim()) return;
+    addPresetSkill(input.value.trim(), 'Adv');
+    input.value = '';
+  }
+
+  function addPresetSkill(name, level) {
+    const list = document.getElementById('active-skills-list');
+    if (!list) return;
+    const div = document.createElement('div');
+    div.className = 'skill-item flex items-center justify-between p-2.5 rounded-xl bg-zen-card border border-zen-border group hover:border-zen-indigo/40 transition-all';
+    div.innerHTML = `
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-zen-indigo-light"></span>
+        <span class="text-xs font-medium text-white truncate">${name}</span>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <select class="bg-zen-surface border border-zen-border rounded text-[10px] text-zen-cyan px-1.5 py-0.5 focus:ring-0 focus:outline-none font-mono cursor-pointer">
+          <option ${level === 'Adv' ? 'selected' : ''} value="Adv">Advanced</option>
+          <option ${level === 'Int' ? 'selected' : ''} value="Int">Intermediate</option>
+          <option ${level === 'Beg' ? 'selected' : ''} value="Beg">Beginner</option>
+        </select>
+        <button onclick="removeSkillItem(this)" class="text-zen-text-faint hover:text-white p-0.5 transition-colors" title="Remove" type="button">
+          <span class="material-symbols-outlined text-[14px]">close</span>
+        </button>
+      </div>
+    `;
+    list.appendChild(div);
+    const countSpan = document.getElementById('skill-count');
+    if (countSpan) {
+      const items = document.querySelectorAll('#active-skills-list .skill-item');
+      countSpan.textContent = items.length;
+    }
+  }
+</script></body></html>

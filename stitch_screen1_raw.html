@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerMatch AI — Zen Precision Engine</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "zen-bg": "#0B0E17",
+            "zen-surface": "#111522",
+            "zen-card": "#151A29",
+            "zen-border": "#1F263B",
+            "zen-border-subtle": "#171D2F",
+            "zen-indigo": "#6366F1",
+            "zen-indigo-light": "#818CF8",
+            "zen-cyan": "#38BDF8",
+            "zen-emerald": "#34D399",
+            "zen-text-main": "#F1F5F9",
+            "zen-text-muted": "#94A3B8",
+            "zen-text-faint": "#64748B"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body { background-color: #0B0E17; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+    ::selection { background: #6366F1; color: #FFFFFF; }
+    .zen-tab-active { background: #1E253A; color: #FFFFFF; border-color: #313B59; }
+    .skill-chip {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .skill-chip.active {
+      background: rgba(99, 102, 241, 0.16);
+      border-color: #6366F1;
+      color: #FFFFFF;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.22);
+    }
+    .skill-chip.active .chip-icon {
+      color: #818CF8;
+    }
+    .skill-chip.active .chip-badge {
+      background: rgba(99, 102, 241, 0.3);
+      color: #C7D2FE;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.9; transform: scale(1); box-shadow: 0 0 10px rgba(56, 189, 248, 0.6); }
+      50% { opacity: 0.4; transform: scale(0.92); box-shadow: 0 0 2px rgba(56, 189, 248, 0.2); }
+    }
+    .cyan-live-pulse {
+      animation: pulseGlow 2s infinite ease-in-out;
+    }
+    .milestone-done {
+      text-decoration: line-through;
+      opacity: 0.55;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white">
+<!-- Minimal Precision Header -->
+<header class="sticky top-0 z-50 w-full bg-[#0B0E17]/90 backdrop-blur-md border-b border-zen-border">
+<div class="max-w-6xl mx-auto px-8 h-16 flex items-center justify-between gap-4">
+<!-- Logo -->
+<a class="flex items-center gap-3 group shrink-0" href="#">
+<div class="w-8 h-8 rounded-lg bg-zen-indigo/10 border border-zen-indigo/30 flex items-center justify-center text-zen-indigo-light group-hover:border-zen-indigo transition-colors">
+<span class="material-symbols-outlined text-[18px]">neurology</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-bold tracking-tight text-white text-base font-sans">CareerMatch</span>
+<span class="text-zen-text-faint font-semibold text-[10px] tracking-widest uppercase font-mono border-l border-zen-border pl-2">ZEN.v4</span>
+</div>
+</a>
+<!-- Live Research Running Indicator (Header Status Pill) -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-zen-surface border border-zen-border text-zen-cyan text-[11px] font-mono shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-cyan cyan-live-pulse"></span>
+<span class="tracking-wide">Live Research Layer Active</span>
+<span class="text-zen-text-faint text-[10px] hidden xl:inline font-mono">(Web Synthesis Engine v4.2)</span>
+</div>
+<!-- Clean Minimal Nav -->
+<nav class="hidden md:flex items-center gap-1 p-1 bg-zen-surface border border-zen-border rounded-lg text-xs font-medium text-zen-text-muted"><button class="px-3 py-1.5 rounded-md text-white bg-zen-card border border-zen-border shadow-sm transition-colors" id="nav-link-1" onclick="goToStage(1)" type="button">1. Intake</button>
+<button class="px-3 py-1.5 rounded-md hover:text-white hover:bg-zen-card/50 transition-colors" id="nav-link-2" onclick="goToStage(2)" type="button">2. Skills</button>
+<button class="px-3 py-1.5 rounded-md hover:text-white hover:bg-zen-card/50 transition-colors" id="nav-link-3" onclick="goToStage(3)" type="button">3. Careers</button>
+<button class="px-3 py-1.5 rounded-md hover:text-white hover:bg-zen-card/50 transition-colors" id="nav-link-4" onclick="goToStage(4)" type="button">4. Roadmap</button></nav>
+<!-- Action -->
+<div class="flex items-center gap-3 shrink-0">
+<span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px] font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-emerald animate-pulse"></span>
+Index Live
+</span>
+<button class="px-4 py-1.5 rounded-lg border border-zen-indigo/40 hover:border-zen-indigo bg-zen-indigo/10 hover:bg-zen-indigo/20 text-white text-xs font-semibold tracking-wide transition-all shadow-sm cursor-pointer" onclick="startAnalysisWorkflow()" type="button">Run Discovery ✨</button>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-12 pb-24 space-y-20"><!-- Direct Hero Section -->
+<section class="pt-2 pb-6 text-center space-y-4 max-w-3xl mx-auto">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zen-indigo/10 border border-zen-indigo/30 text-zen-indigo-light text-xs font-mono">
+<span class="material-symbols-outlined text-[15px]">neurology</span>
+<span>Deterministic Transferable Skills Discovery</span>
+</div>
+<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight font-sans">
+    Discover careers that fit <span class="text-zen-indigo-light">what you’ve done</span>.
+  </h1>
+<p class="text-zen-text-muted text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
+    Describe a project, internship, college activity, or everyday responsibility. Explore the skills behind it and discover careers worth considering.
+  </p>
+</section>
+<!-- 4-Stage Progressive Workflow Stepper Bar -->
+<nav aria-label="Career discovery stages" class="w-full max-w-4xl mx-auto p-2 rounded-2xl bg-zen-surface border border-zen-border shadow-lg">
+<ol class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="workflow-stepper">
+<!-- Step 1 -->
+<li>
+<button aria-current="step" class="w-full flex items-center gap-2.5 p-2.5 rounded-xl bg-zen-indigo text-white font-semibold shadow-sm transition-all text-left text-xs" id="step-btn-1" onclick="goToStage(1)" type="button">
+<span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center font-mono text-[11px] shrink-0">1</span>
+<div class="min-w-0">
+<span class="block text-[10px] uppercase tracking-wider text-white/70 font-mono">Step 1</span>
+<span class="block truncate font-medium text-white">Describe Experience</span>
+</div>
+</button>
+</li>
+<!-- Step 2 -->
+<li>
+<button class="w-full flex items-center gap-2.5 p-2.5 rounded-xl text-zen-text-muted hover:text-white hover:bg-zen-card/60 transition-all text-left text-xs" id="step-btn-2" onclick="goToStage(2)" type="button">
+<span class="w-6 h-6 rounded-full bg-zen-surface border border-zen-border flex items-center justify-center font-mono text-[11px] shrink-0 text-zen-text-faint">2</span>
+<div class="min-w-0">
+<span class="block text-[10px] uppercase tracking-wider text-zen-text-faint font-mono">Step 2</span>
+<span class="block truncate font-medium">Review Skills</span>
+</div>
+</button>
+</li>
+<!-- Step 3 -->
+<li>
+<button class="w-full flex items-center gap-2.5 p-2.5 rounded-xl text-zen-text-muted hover:text-white hover:bg-zen-card/60 transition-all text-left text-xs" id="step-btn-3" onclick="goToStage(3)" type="button">
+<span class="w-6 h-6 rounded-full bg-zen-surface border border-zen-border flex items-center justify-center font-mono text-[11px] shrink-0 text-zen-text-faint">3</span>
+<div class="min-w-0">
+<span class="block text-[10px] uppercase tracking-wider text-zen-text-faint font-mono">Step 3</span>
+<span class="block truncate font-medium">Explore Careers</span>
+</div>
+</button>
+</li>
+<!-- Step 4 -->
+<li>
+<button class="w-full flex items-center gap-2.5 p-2.5 rounded-xl text-zen-text-muted hover:text-white hover:bg-zen-card/60 transition-all text-left text-xs" id="step-btn-4" onclick="goToStage(4)" type="button">
+<span class="w-6 h-6 rounded-full bg-zen-surface border border-zen-border flex items-center justify-center font-mono text-[11px] shrink-0 text-zen-text-faint">4</span>
+<div class="min-w-0">
+<span class="block text-[10px] uppercase tracking-wider text-zen-text-faint font-mono">Step 4</span>
+<span class="block truncate font-medium">Learning Plan</span>
+</div>
+</button>
+</li>
+</ol>
+</nav>
+<!-- =========================================================================
+     STAGE 1: DESCRIBE EXPERIENCE
+     ========================================================================= -->
+<div class="w-full max-w-4xl mx-auto space-y-6" id="stage-1-container">
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 sm:p-8 space-y-6 shadow-2xl relative">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-zen-border-subtle gap-3">
+<div>
+<h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Tell us about something you’ve done</h2>
+<p class="text-xs sm:text-sm text-zen-text-muted mt-1 leading-relaxed">
+          Explain what you worked on, what you did, and what happened. Informal experience, club work, or coursework counts too.
+        </p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3 py-1.5 rounded-lg border border-zen-border hover:border-zen-text-muted bg-zen-card text-zen-text-muted hover:text-white text-xs font-mono transition-colors flex items-center gap-1.5" onclick="clearExperienceInput()" title="Clear text" type="button">
+<span class="material-symbols-outlined text-[14px]">delete_sweep</span>
+<span>Clear</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg border border-zen-indigo/40 hover:border-zen-indigo bg-zen-indigo/10 text-zen-indigo-light hover:text-white text-xs font-mono transition-colors flex items-center gap-1.5" onclick="applySampleExample('event')" type="button">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+<span>Try an example</span>
+</button>
+</div>
+</div>
+<!-- Quick Example Chips -->
+<div class="space-y-2">
+<span class="text-[11px] font-mono uppercase tracking-wider text-zen-text-faint">Click a realistic example to populate:</span>
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5" onclick="applySampleExample('event')" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-indigo-light">event</span>
+<span>College Event Coordinator</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5" onclick="applySampleExample('internship')" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-cyan">dataset</span>
+<span>Analytics Internship</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5" onclick="applySampleExample('volunteering')" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-emerald">volunteer_activism</span>
+<span>Community Volunteering</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5" onclick="applySampleExample('freelance')" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-indigo-light">code</span>
+<span>Freelance Web Bot</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5" onclick="applySampleExample('coursework')" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-cyan">school</span>
+<span>Lab Coursework Capstone</span>
+</button>
+</div>
+</div>
+<!-- Large Textarea -->
+<div class="space-y-2">
+<label class="sr-only" for="experience-text-input">Experience Description</label>
+<textarea class="w-full p-4 bg-zen-card border border-zen-border rounded-xl text-white placeholder-zen-text-faint text-sm leading-relaxed focus:ring-2 focus:ring-zen-indigo focus:border-zen-indigo transition-all font-sans" id="experience-text-input" placeholder="I helped organize a college event, coordinated volunteers, tracked expenses, and promoted it on social media." rows="6">I organized a 3-day university design sprint with 120 attendees, coordinated 18 volunteer facilitators, tracked a $4,500 budget in Google Sheets with pivot tables, built an automated Discord update bot using Python, and gathered attendee feedback through surveys to present metric takeaways to faculty.</textarea>
+<div class="hidden p-3 rounded-lg bg-zen-surface border border-zen-indigo/30 text-zen-indigo-light text-xs flex items-center gap-2" id="validation-warning">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Add a little more detail about what you did (at least 20 characters) so we can identify relevant skills.</span>
+</div>
+</div>
+<!-- Optional Context Accordion (Interests & Work Preferences) -->
+<div class="rounded-xl border border-zen-border bg-zen-card/50 overflow-hidden">
+<button class="w-full p-3.5 flex items-center justify-between text-xs text-zen-text-muted hover:text-white font-medium transition-colors text-left" id="btn-optional-context" onclick="toggleOptionalContext()" type="button">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-zen-cyan">tune</span>
+<span>+ Optional: Target Interests &amp; Work Preferences (Remote, Collaborative, Analytical)</span>
+</span>
+<span class="material-symbols-outlined text-[16px] transition-transform duration-200" id="optional-chevron">expand_more</span>
+</button>
+<div class="hidden p-4 border-t border-zen-border space-y-4 text-xs" id="optional-context-panel">
+<div class="space-y-2">
+<span class="font-mono uppercase tracking-wider text-[11px] text-zen-text-faint">Preferred Work Setting</span>
+<div class="flex flex-wrap gap-2">
+<button class="pref-chip px-3 py-1.5 rounded-lg border border-zen-border bg-zen-card text-white hover:border-zen-indigo transition-all flex items-center gap-1.5" data-selected="true" onclick="togglePreferenceChip(this)" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-indigo-light">home_work</span>
+<span>Remote-friendly</span>
+</button>
+<button class="pref-chip px-3 py-1.5 rounded-lg border border-zen-border bg-zen-card text-white hover:border-zen-cyan transition-all flex items-center gap-1.5" data-selected="true" onclick="togglePreferenceChip(this)" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-cyan">groups</span>
+<span>Collaborative Teams</span>
+</button>
+<button class="pref-chip px-3 py-1.5 rounded-lg border border-zen-border bg-zen-card text-zen-text-muted hover:border-zen-emerald transition-all flex items-center gap-1.5" data-selected="false" onclick="togglePreferenceChip(this)" type="button">
+<span class="material-symbols-outlined text-[14px] text-zen-emerald">query_stats</span>
+<span>Analytical Focus</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="pt-4 border-t border-zen-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="text-xs text-zen-text-faint font-sans flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-zen-emerald">check_circle</span>
+<span>Skill vectors are extracted transparently without automated keyword blacklisting.</span>
+</div>
+<button class="w-full sm:w-auto px-8 py-3 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white font-bold text-sm tracking-wide shadow-2xl hover:shadow-indigo-500/25 transition-all flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer" onclick="startAnalysisWorkflow()" type="button">
+<span>Find my career matches</span>
+<span class="text-base">✨</span>
+</button>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+     INTERACTIVE PROCESSING STATE (Overlay Modal)
+     ========================================================================= -->
+<div class="hidden fixed inset-0 z-50 bg-[#0B0E17]/85 backdrop-blur-md flex items-center justify-center p-4" id="processing-state">
+<div class="max-w-md w-full rounded-2xl border border-zen-border bg-zen-surface p-8 text-center space-y-6 shadow-2xl">
+<div class="w-14 h-14 rounded-2xl bg-zen-indigo/10 border border-zen-indigo/30 flex items-center justify-center mx-auto text-zen-indigo animate-pulse">
+<span class="material-symbols-outlined text-[28px]">neurology</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-lg font-bold text-white" id="processing-title">Analyzing your experience...</h3>
+<p class="text-xs text-zen-text-muted font-mono" id="processing-step-desc">Extracting transferable skill vectors...</p>
+</div>
+<div class="space-y-2 text-left font-mono text-xs border-l border-zen-border pl-3 mx-auto max-w-xs text-zen-text-muted">
+<div class="flex items-center gap-2 text-zen-indigo-light">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-indigo-light animate-pulse"></span>
+<span>Deconstructing action statements</span>
+</div>
+<div class="flex items-center gap-2 text-zen-cyan">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-cyan"></span>
+<span>Mapping transferable capabilities</span>
+</div>
+<div class="flex items-center gap-2 text-zen-emerald">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span>
+<span>Cross-referencing labor market paths</span>
+</div>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+     STAGE 2: REVIEW SKILLS
+     ========================================================================= -->
+<div class="hidden w-full max-w-4xl mx-auto space-y-6" id="stage-2-container">
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 sm:p-8 space-y-6 shadow-2xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-zen-border-subtle gap-3">
+<div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zen-indigo/10 border border-zen-indigo/30 text-zen-indigo-light text-[11px] font-mono mb-2">
+<span>STAGE 2</span>
+<span>•</span>
+<span>TRANSFERABLE CAPABILITIES</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Here are the skills we found</h2>
+<p class="text-xs sm:text-sm text-zen-text-muted mt-1 leading-relaxed">
+          Review the transferable capabilities extracted from your experience. Inferred skills are starting points, not verified credentials.
+        </p>
+</div>
+<button class="px-3.5 py-1.5 rounded-xl border border-zen-border hover:border-zen-indigo bg-zen-card text-white text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto" onclick="goToStage(1)" type="button">
+<span class="material-symbols-outlined text-[15px] text-zen-indigo-light">edit</span>
+<span>Edit experience</span>
+</button>
+</div>
+<!-- Quick Add New Skill Input -->
+<div class="flex flex-col sm:flex-row items-stretch gap-2.5">
+<div class="flex-1 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-zen-indigo text-[18px]">add_circle</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-zen-card border border-zen-border rounded-xl text-white placeholder-zen-text-faint text-xs focus:ring-2 focus:ring-zen-indigo focus:border-zen-indigo transition-all font-sans" id="custom-skill-input" onkeydown="if(event.key==='Enter'){event.preventDefault();addCustomSkillBadge();}" placeholder="Add another skill or tool (e.g., Notion, User Interviews, Tableau)..." type="text"/>
+</div>
+<button class="px-5 py-2.5 rounded-xl bg-zen-card hover:bg-zen-border border border-zen-border text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all" onclick="addCustomSkillBadge()" type="button">
+<span>Add Skill</span>
+</button>
+</div>
+<!-- Identified Skills Badges Grid -->
+<div class="space-y-3">
+<div class="flex items-center justify-between text-xs">
+<span class="font-mono uppercase tracking-wider text-[11px] text-zen-text-faint">
+          Identified Skills (<span id="badge-count">6</span>)
+        </span>
+<span class="text-[11px] text-zen-text-faint font-mono">Click ✕ to remove any skill</span>
+</div>
+<div class="flex flex-wrap gap-2.5" id="skills-badge-list">
+<!-- Inferred Badge 1 -->
+<div class="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-indigo/10 border border-zen-indigo/30 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-[13px] text-zen-indigo-light">auto_awesome</span>
+<span>Event Logistics &amp; Coordination</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-indigo/20 text-zen-indigo-light">Inferred</span>
+<button class="text-zen-text-faint hover:text-white transition-colors ml-1" onclick="removeSkillBadge(this)" title="Remove skill" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<!-- Inferred Badge 2 -->
+<div class="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-indigo/10 border border-zen-indigo/30 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-[13px] text-zen-indigo-light">auto_awesome</span>
+<span>Volunteer Facilitation &amp; Leadership</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-indigo/20 text-zen-indigo-light">Inferred</span>
+<button class="text-zen-text-faint hover:text-white transition-colors ml-1" onclick="removeSkillBadge(this)" title="Remove skill" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<!-- Inferred Badge 3 -->
+<div class="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-cyan/10 border border-zen-cyan/30 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-[13px] text-zen-cyan">auto_awesome</span>
+<span>Budget Tracking &amp; Pivot Tables</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-cyan/20 text-zen-cyan">Inferred</span>
+<button class="text-zen-text-faint hover:text-white transition-colors ml-1" onclick="removeSkillBadge(this)" title="Remove skill" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<!-- Inferred Badge 4 -->
+<div class="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-emerald/10 border border-zen-emerald/30 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-[13px] text-zen-emerald">auto_awesome</span>
+<span>Python Scripting &amp; Bot Automation</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-emerald/20 text-zen-emerald">Inferred</span>
+<button class="text-zen-text-faint hover:text-white transition-colors ml-1" onclick="removeSkillBadge(this)" title="Remove skill" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<!-- Inferred Badge 5 -->
+<div class="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-indigo/10 border border-zen-indigo/30 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-[13px] text-zen-indigo-light">auto_awesome</span>
+<span>Survey Design &amp; Feedback Synthesis</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-indigo/20 text-zen-indigo-light">Inferred</span>
+<button class="text-zen-text-faint hover:text-white transition-colors ml-1" onclick="removeSkillBadge(this)" title="Remove skill" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+<!-- Inferred Badge 6 -->
+<div class="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-cyan/10 border border-zen-cyan/30 text-white text-xs font-medium">
+<span class="material-symbols-outlined text-[13px] text-zen-cyan">auto_awesome</span>
+<span>Stakeholder Metric Reporting</span>
+<span class="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-cyan/20 text-zen-cyan">Inferred</span>
+<button class="text-zen-text-faint hover:text-white transition-colors ml-1" onclick="removeSkillBadge(this)" title="Remove skill" type="button">
+<span class="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Actions Bar -->
+<div class="pt-4 border-t border-zen-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+<button class="text-xs text-zen-text-muted hover:text-white transition-colors flex items-center gap-1.5" onclick="goToStage(1)" type="button">
+<span class="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Back to edit description</span>
+</button>
+<button class="w-full sm:w-auto px-8 py-3 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white font-bold text-sm tracking-wide shadow-2xl transition-all flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer" onclick="goToStage(3)" type="button">
+<span>Show career matches</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+     STAGE 3: EXPLORE CAREERS (Transparent, Structured Match Cards)
+     ========================================================================= -->
+<div class="hidden w-full max-w-5xl mx-auto space-y-8" id="stage-3-container">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-zen-border gap-3">
+<div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zen-emerald/10 border border-zen-emerald/30 text-zen-emerald text-[11px] font-mono mb-1.5">
+<span>STAGE 3</span>
+<span>•</span>
+<span>3 VETTED RECOMMENDATIONS</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Explore Careers Matching Your Profile</h2>
+<p class="text-xs text-zen-text-muted mt-0.5 leading-relaxed">
+        Recommendations reflect capability overlap derived from your experience, not hiring guarantees.
+      </p>
+</div>
+<button class="px-3.5 py-1.5 rounded-xl border border-zen-border hover:border-zen-indigo bg-zen-card text-white text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto" onclick="goToStage(2)" type="button">
+<span class="material-symbols-outlined text-[15px] text-zen-indigo-light">tune</span>
+<span>Adjust skills</span>
+</button>
+</div>
+<!-- 3 Structured Career Cards -->
+<div class="space-y-5">
+<!-- Card 1: Project Coordinator / Operations Associate -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-5 shadow-xl hover:border-zen-indigo/50 transition-all duration-300">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-zen-indigo/15 border border-zen-indigo/30 text-zen-indigo-light text-[10px] font-mono font-semibold uppercase tracking-wider">High Alignment</span>
+<span class="text-xs font-mono text-zen-text-faint">Operations &amp; Execution</span>
+</div>
+<h3 class="text-lg font-bold text-white">Project Coordinator / Operations Associate</h3>
+</div>
+<button class="px-4 py-2 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm shrink-0" onclick="selectCareerAndProceed('Project Coordinator / Operations Associate', 'coord')" type="button">
+<span>Explore this career &amp; view plan</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+        Plans, tracks, and aligns cross-functional team execution, budgets, and operational schedules across business or tech projects.
+      </p>
+<!-- Why suggested -->
+<div class="p-3.5 rounded-xl bg-zen-card border border-zen-border space-y-1.5">
+<div class="text-[11px] font-mono text-zen-indigo-light uppercase font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">help_outline</span>
+<span>Why this career was suggested</span>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+          You coordinated 18 volunteers across a 120-attendee sprint and managed a $4,500 budget with spreadsheet models. This directly mirrors day-to-day operations logistics.
+        </p>
+</div>
+<!-- Relevant Skills vs Skills to develop -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+<div class="space-y-2">
+<span class="text-[11px] font-mono text-zen-emerald flex items-center gap-1 uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span> Relevant skills found
+          </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Logistics Planning</span>
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Budget Tracking</span>
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Team Facilitation</span>
+</div>
+</div>
+<div class="space-y-2">
+<span class="text-[11px] font-mono text-zen-text-faint flex items-center gap-1 uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-text-faint"></span> Skills to develop
+          </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Agile / Scrum Rituals</span>
+<span class="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Asana / Jira Workflows</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Data Analyst & Insights Specialist -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-5 shadow-xl hover:border-zen-cyan/50 transition-all duration-300">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-zen-cyan/15 border border-zen-cyan/30 text-zen-cyan text-[10px] font-mono font-semibold uppercase tracking-wider">High Alignment</span>
+<span class="text-xs font-mono text-zen-text-faint">Data &amp; Business Intelligence</span>
+</div>
+<h3 class="text-lg font-bold text-white">Data Analyst &amp; Insights Specialist</h3>
+</div>
+<button class="px-4 py-2 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm shrink-0" onclick="selectCareerAndProceed('Data Analyst &amp; Insights Specialist', 'analyst')" type="button">
+<span>Explore this career &amp; view plan</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+        Transforms raw operational data and survey responses into actionable KPI dashboards and commercial business insights.
+      </p>
+<!-- Why suggested -->
+<div class="p-3.5 rounded-xl bg-zen-card border border-zen-border space-y-1.5">
+<div class="text-[11px] font-mono text-zen-cyan uppercase font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">help_outline</span>
+<span>Why this career was suggested</span>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+          Your use of spreadsheet pivot tables for budget tracking, automated Python scripts, and metric survey synthesis demonstrates foundational analytical data handling.
+        </p>
+</div>
+<!-- Relevant Skills vs Skills to develop -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+<div class="space-y-2">
+<span class="text-[11px] font-mono text-zen-emerald flex items-center gap-1 uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span> Relevant skills found
+          </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Python Scripting</span>
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Pivot Tables</span>
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Feedback Synthesis</span>
+</div>
+</div>
+<div class="space-y-2">
+<span class="text-[11px] font-mono text-zen-text-faint flex items-center gap-1 uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-text-faint"></span> Skills to develop
+          </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Relational SQL Indexing</span>
+<span class="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Tableau / PowerBI</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Learning Experience & Community Designer -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-5 shadow-xl hover:border-zen-emerald/50 transition-all duration-300">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-zen-emerald/15 border border-zen-emerald/30 text-zen-emerald text-[10px] font-mono font-semibold uppercase tracking-wider">Asymmetric Fit</span>
+<span class="text-xs font-mono text-zen-text-faint">EdTech &amp; Developer Relations</span>
+</div>
+<h3 class="text-lg font-bold text-white">Learning Experience &amp; Community Designer</h3>
+</div>
+<button class="px-4 py-2 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm shrink-0" onclick="selectCareerAndProceed('Learning Experience &amp; Community Designer', 'designer')" type="button">
+<span>Explore this career &amp; view plan</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+        Crafts participatory learning modules, community onboarding scaffolding, and interactive documentation for technical audiences.
+      </p>
+<!-- Why suggested -->
+<div class="p-3.5 rounded-xl bg-zen-card border border-zen-border space-y-1.5">
+<div class="text-[11px] font-mono text-zen-emerald uppercase font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">help_outline</span>
+<span>Why this career was suggested</span>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+          Building a custom Discord bot to automate updates and synthesizing participant feedback demonstrates an intuitive grasp of asynchronous community workflows.
+        </p>
+</div>
+<!-- Relevant Skills vs Skills to develop -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+<div class="space-y-2">
+<span class="text-[11px] font-mono text-zen-emerald flex items-center gap-1 uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span> Relevant skills found
+          </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Community Onboarding</span>
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Bot Scripting</span>
+<span class="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Event Facilitation</span>
+</div>
+</div>
+<div class="space-y-2">
+<span class="text-[11px] font-mono text-zen-text-faint flex items-center gap-1 uppercase font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-text-faint"></span> Skills to develop
+          </span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Curriculum Architecture</span>
+<span class="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Interactive Sandbox Design</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Buttons -->
+<div class="pt-4 border-t border-zen-border-subtle flex items-center justify-between">
+<button class="text-xs text-zen-text-muted hover:text-white transition-colors flex items-center gap-1.5" onclick="goToStage(2)" type="button">
+<span class="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Back to skills</span>
+</button>
+<span class="text-xs font-mono text-zen-text-faint">Select any career card to inspect its actionable learning plan</span>
+</div>
+</div>
+<!-- =========================================================================
+     STAGE 4: DEDICATED LEARNING ROADMAP (Upon Career Selection)
+     ========================================================================= -->
+<div class="hidden w-full max-w-5xl mx-auto space-y-8" id="stage-4-container">
+<!-- Roadmap Banner for Selected Career -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-xl">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-zen-border-subtle">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zen-indigo/15 text-zen-indigo-light text-[11px] font-mono font-semibold uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-zen-indigo"></span>
+<span>ACTIVE LEARNING PLAN</span>
+</div>
+<h2 class="text-xl sm:text-2xl font-bold text-white" id="roadmap-career-title">Data Analyst &amp; Insights Specialist</h2>
+</div>
+<!-- Quick switch career dropdown -->
+<div class="flex items-center gap-2 shrink-0">
+<label class="text-xs font-mono text-zen-text-faint" for="plan-career-selector">Switch Plan:</label>
+<select class="bg-zen-card border border-zen-border rounded-xl text-xs text-white px-3 py-2 focus:ring-2 focus:ring-zen-indigo focus:border-zen-indigo cursor-pointer" id="plan-career-selector" onchange="switchRoadmapPlan(this.value)">
+<option value="coord">Project Coordinator</option>
+<option selected="" value="analyst">Data Analyst</option>
+<option value="designer">Learning Experience Designer</option>
+</select>
+<button class="px-3 py-2 rounded-xl bg-zen-card border border-zen-border hover:border-zen-text-muted text-zen-text-muted hover:text-white text-xs font-mono transition-colors flex items-center gap-1" onclick="goToStage(3)" type="button">
+<span class="material-symbols-outlined text-[14px]">grid_view</span>
+<span>All Careers</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
+<div class="p-3 rounded-xl bg-zen-card border border-zen-border space-y-1">
+<span class="text-[11px] font-mono text-zen-indigo-light uppercase font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+          Why this roadmap was generated
+        </span>
+<p class="text-zen-text-muted text-[11px] leading-relaxed" id="roadmap-why-text">
+          Builds on your spreadsheet pivot tables and basic Python scripting to unlock commercial data warehouse analysis and dashboard storytelling.
+        </p>
+</div>
+<div class="p-3 rounded-xl bg-zen-card border border-zen-border space-y-1">
+<span class="text-[11px] font-mono text-zen-emerald uppercase font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">flag</span>
+          Priority skill gaps targeted
+        </span>
+<p class="text-zen-text-muted text-[11px] leading-relaxed" id="roadmap-gaps-text">
+          Relational SQL query optimization, automated ETL orchestration, and executive KPI dashboard visualization.
+        </p>
+</div>
+</div>
+</div>
+<!-- 3 Milestones: Fundamentals, Realistic Project, Portfolio Delivery -->
+<div class="space-y-5" id="milestone-list-container">
+<!-- Milestone 1 -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-lg transition-all" id="m-card-1">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="px-2.5 py-0.5 rounded-lg bg-zen-indigo/15 text-zen-indigo-light font-mono font-bold text-xs">Milestone 1</span>
+<h3 class="text-base font-bold text-white">Learn the Fundamentals: SQL Indexing &amp; Relational Queries</h3>
+</div>
+<label class="inline-flex items-center gap-2 cursor-pointer text-xs text-zen-text-faint hover:text-zen-emerald select-none">
+<input class="w-4 h-4 rounded bg-zen-card border-zen-border text-zen-emerald focus:ring-0 focus:ring-offset-0 cursor-pointer" onchange="toggleMilestoneComplete('m-card-1', this)" type="checkbox"/>
+<span class="text-[11px] font-mono">Mark as practiced (self-tracked)</span>
+</label>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+<strong>Specific Task:</strong> Master multi-table INNER/LEFT joins, GROUP BY aggregations, and execution plans to query structured transactional schemas efficiently.
+      </p>
+<div class="p-3.5 rounded-xl bg-zen-card border border-zen-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-medium text-white">Stanford CS145: Practical Query Optimization &amp; Indexing</span>
+<span class="px-1.5 py-0.2 rounded bg-zen-surface border border-zen-border text-zen-cyan font-mono text-[10px]">stanford.edu</span>
+</div>
+<p class="text-zen-text-faint text-[11px]">Free academic lab module focusing on relational engine speed and execution trees.</p>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-zen-surface hover:bg-zen-border border border-zen-border text-zen-cyan hover:text-white font-mono text-[11px] flex items-center justify-center gap-1 transition-colors shrink-0" href="https://stanford.edu" rel="noopener noreferrer" target="_blank">
+<span>Open Resource</span>
+<span class="material-symbols-outlined text-[13px]">launch</span>
+</a>
+</div>
+</div>
+<!-- Milestone 2 -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-lg transition-all" id="m-card-2">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="px-2.5 py-0.5 rounded-lg bg-zen-cyan/15 text-zen-cyan font-mono font-bold text-xs">Milestone 2</span>
+<h3 class="text-base font-bold text-white">Practice with a Realistic Project: Cohort Retention Pipeline</h3>
+</div>
+<label class="inline-flex items-center gap-2 cursor-pointer text-xs text-zen-text-faint hover:text-zen-emerald select-none">
+<input class="w-4 h-4 rounded bg-zen-card border-zen-border text-zen-emerald focus:ring-0 focus:ring-offset-0 cursor-pointer" onchange="toggleMilestoneComplete('m-card-2', this)" type="checkbox"/>
+<span class="text-[11px] font-mono">Mark as practiced (self-tracked)</span>
+</label>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+<strong>Specific Task:</strong> Ingest raw CSV/event records from your past project, clean missing records using Python/Pandas, and run window functions to calculate 30-day user return rates.
+      </p>
+<div class="p-3.5 rounded-xl bg-zen-card border border-zen-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-medium text-white">Mode Analytics: Advanced SQL Window Guide &amp; Cohort Modeling</span>
+<span class="px-1.5 py-0.2 rounded bg-zen-surface border border-zen-border text-zen-cyan font-mono text-[10px]">mode.com</span>
+</div>
+<p class="text-zen-text-faint text-[11px]">Hands-on tutorials using real user event sequences and rolling window calculations.</p>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-zen-surface hover:bg-zen-border border border-zen-border text-zen-cyan hover:text-white font-mono text-[11px] flex items-center justify-center gap-1 transition-colors shrink-0" href="https://mode.com" rel="noopener noreferrer" target="_blank">
+<span>Open Resource</span>
+<span class="material-symbols-outlined text-[13px]">launch</span>
+</a>
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-lg transition-all" id="m-card-3">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex items-center gap-2.5">
+<span class="px-2.5 py-0.5 rounded-lg bg-zen-emerald/15 text-zen-emerald font-mono font-bold text-xs">Milestone 3</span>
+<h3 class="text-base font-bold text-white">Demonstrate Your Skills: Interactive Portfolio Artifact</h3>
+</div>
+<label class="inline-flex items-center gap-2 cursor-pointer text-xs text-zen-text-faint hover:text-zen-emerald select-none">
+<input class="w-4 h-4 rounded bg-zen-card border-zen-border text-zen-emerald focus:ring-0 focus:ring-offset-0 cursor-pointer" onchange="toggleMilestoneComplete('m-card-3', this)" type="checkbox"/>
+<span class="text-[11px] font-mono">Mark as practiced (self-tracked)</span>
+</label>
+</div>
+<p class="text-xs text-zen-text-muted leading-relaxed font-sans">
+<strong>Specific Task:</strong> Package your queries and visualizations into a public GitHub repository with an executive README, reproducibility steps, and a live Streamlit dashboard link.
+      </p>
+<div class="p-3.5 rounded-xl bg-zen-card border border-zen-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-medium text-white">GitHub Octoverse: Open Portfolio Standards for Analysts</span>
+<span class="px-1.5 py-0.2 rounded bg-zen-surface border border-zen-border text-zen-cyan font-mono text-[10px]">github.blog</span>
+</div>
+<p class="text-zen-text-faint text-[11px]">Best practices for documenting data schemas, query assumptions, and visual summaries.</p>
+</div>
+<a class="px-3 py-1.5 rounded-lg bg-zen-surface hover:bg-zen-border border border-zen-border text-zen-cyan hover:text-white font-mono text-[11px] flex items-center justify-center gap-1 transition-colors shrink-0" href="https://github.blog" rel="noopener noreferrer" target="_blank">
+<span>Open Resource</span>
+<span class="material-symbols-outlined text-[13px]">launch</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Controls -->
+<div class="pt-4 border-t border-zen-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+<button class="text-xs text-zen-text-muted hover:text-white transition-colors flex items-center gap-1.5" onclick="goToStage(3)" type="button">
+<span class="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Back to career recommendations</span>
+</button>
+<button class="px-4 py-2 rounded-xl bg-zen-card hover:bg-zen-border border border-zen-border text-white text-xs font-semibold flex items-center gap-1.5 transition-all" onclick="goToStage(1)" type="button">
+<span class="material-symbols-outlined text-[15px] text-zen-indigo-light">restart_alt</span>
+<span>Start another discovery</span>
+</button>
+</div>
+</div>
+<!-- AUDIENCE ALIGNMENT CARDS -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-zen-border">
+<div class="p-6 rounded-2xl bg-zen-surface border border-zen-border hover:border-zen-indigo/30 transition-all space-y-2">
+<div class="w-8 h-8 rounded-lg bg-zen-indigo/10 border border-zen-indigo/20 flex items-center justify-center text-zen-indigo mb-2">
+<span class="material-symbols-outlined text-[18px]">school</span>
+</div>
+<h4 class="text-sm font-semibold text-white">College Grads &amp; Labs</h4>
+<p class="text-xs text-zen-text-muted leading-relaxed">Translates dense lab coursework and senior codebases into verifiable commercial qualifications without needing 2+ years of prior formal title experience.</p>
+</div>
+<div class="p-6 rounded-2xl bg-zen-surface border border-zen-border hover:border-zen-cyan/30 transition-all space-y-2">
+<div class="w-8 h-8 rounded-lg bg-zen-cyan/10 border border-zen-cyan/20 flex items-center justify-center text-zen-cyan mb-2">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+</div>
+<h4 class="text-sm font-semibold text-white">Career Switchers</h4>
+<p class="text-xs text-zen-text-muted leading-relaxed">Extracts latent transferable meta-skills. Discover high-leverage adjacent domains where your unique multi-disciplinary background provides asymmetric advantage.</p>
+</div>
+<div class="p-6 rounded-2xl bg-zen-surface border border-zen-border hover:border-zen-emerald/30 transition-all space-y-2">
+<div class="w-8 h-8 rounded-lg bg-zen-emerald/10 border border-zen-emerald/20 flex items-center justify-center text-zen-emerald mb-2">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<h4 class="text-sm font-semibold text-white">Self-Taught Builders</h4>
+<p class="text-xs text-zen-text-muted leading-relaxed">Scores live repository commits, deployed web tools, and Discord moderation systems. Replaces arbitrary pedagogical pedigree with proof of output.</p>
+</div>
+</section>
+<!-- COMPLIANCE & LEGAL NOTICE -->
+<section class="text-center pt-4 pb-2 border-t border-zen-border space-y-2 font-mono">
+<p class="text-xs text-zen-cyan max-w-3xl mx-auto leading-relaxed">
+<span class="font-bold">Notice:</span> Research is informational and does not guarantee employment or career outcomes.
+  </p>
+<p class="text-[11px] text-zen-text-faint max-w-3xl mx-auto leading-relaxed font-sans">
+<span class="text-zen-text-muted font-medium font-mono">Legal Notice:</span> CareerMatch AI provides exploratory career guidance and skills mapping based on labor market research, not formal employment, salary, visa, legal, or financial advice.
+  </p>
+</section></main>
+<!-- Minimal Zen Precision Footer -->
+<footer class="w-full bg-[#090C14] border-t border-zen-border py-8 text-xs font-mono text-zen-text-faint">
+<div class="max-w-6xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-zen-emerald"></span>
+<span class="text-zen-text-muted">CareerMatch AI</span>
+<span>— Zen Precision Architecture v4.2</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Taxonomy Index</a>
+<a class="hover:text-white transition-colors" href="#">SOC-2 Type II</a>
+<a class="hover:text-white transition-colors" href="#">Deterministic Models</a>
+</div>
+</div>
+</footer>
+<!-- Micro-Interactions Script -->
+<script>
+    function toggleAccordion(card) {
+      const content = card.querySelector('.acc-content');
+      const icon = card.querySelector('.acc-icon');
+      const isHidden = content.classList.contains('hidden');
+      
+      document.querySelectorAll('.acc-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.acc-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+      
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // Toggle sources drawer in Match cards
+    function toggleSourcesDrawer(panelId, btn) {
+      const panel = document.getElementById(panelId);
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (panel) {
+        const isHidden = panel.classList.contains('hidden');
+        if (isHidden) {
+          panel.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        } else {
+          panel.classList.add('hidden');
+          if (icon) icon.style.transform = 'rotate(0deg)';
+        }
+      }
+    }
+
+    // Interactive Mark as complete for roadmap actions
+    function markMilestoneComplete(boxId, checkbox) {
+      const box = document.getElementById(boxId);
+      if (!box) return;
+      if (checkbox.checked) {
+        box.classList.add('milestone-done');
+      } else {
+        box.classList.remove('milestone-done');
+      }
+    }
+
+    function toggleWhatIf(checkbox) {
+      const knob = document.getElementById('toggle-knob');
+      const r30 = document.getElementById('r-30');
+      const r60 = document.getElementById('r-60');
+      const r90 = document.getElementById('r-90');
+      const r30Title = document.getElementById('r30-title');
+      const r60Title = document.getElementById('r60-title');
+      const r90Title = document.getElementById('r90-title');
+      const fit = document.getElementById('roadmap-fit');
+      const desc = document.getElementById('roadmap-desc');
+
+      if (checkbox.checked) {
+        knob.style.transform = 'translateX(12px)';
+        desc.textContent = "What-If Simulation: +Prompt Engineering & Cloud";
+        r30.textContent = "FastAPI & Vector DB integration";
+        if (r30Title) r30Title.textContent = "LangChain & ChromaDB Production";
+        r60.textContent = "Deploy production LLM Agent on AWS";
+        if (r60Title) r60Title.textContent = "AWS Bedrock & Serverless Orchestration";
+        r90.textContent = "Lead AI Systems Orchestration role";
+        if (r90Title) r90Title.textContent = "Full-Stack Agentic Portfolio Delivery";
+        fit.textContent = "92% → 99% (Hidden Top 1%)";
+      } else {
+        knob.style.transform = 'translateX(0px)';
+        desc.textContent = "Target: Senior Data Insights Analyst";
+        r30.textContent = "Production SQL indexing";
+        if (r30Title) r30Title.textContent = "Stanford CS145: Query Optimization";
+        r60.textContent = "A/B Hypothesis pipeline";
+        if (r60Title) r60Title.textContent = "Mode Advanced SQL Window Guide";
+        r90.textContent = "Verified Capstone PR";
+        if (r90Title) r90Title.textContent = "dbt Fundamentals & Capstone CI/CD";
+        fit.textContent = "88% → 96%";
+      }
+    }
+
+    // What-If Simulator Real-Time Engine
+    const BASE_ANALYST = 88.4;
+    const BASE_LXD = 81.0;
+    const BASE_COMM = 75.0;
+
+    function toggleBooster(button) {
+      const isActive = button.getAttribute('data-active') === 'true';
+      button.setAttribute('data-active', !isActive);
+      if (!isActive) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+      recalculateSimulation();
+    }
+
+    function recalculateSimulation() {
+      const chips = document.querySelectorAll('.skill-chip');
+      let addedScore = 0;
+      let addedLxd = 0;
+      let addedComm = 0;
+      let activeCount = 0;
+
+      chips.forEach(chip => {
+        if (chip.getAttribute('data-active') === 'true') {
+          activeCount++;
+          addedScore += parseFloat(chip.getAttribute('data-weight') || '0');
+          addedLxd += parseFloat(chip.getAttribute('data-lxd') || '0');
+          addedComm += parseFloat(chip.getAttribute('data-comm') || '0');
+        }
+      });
+
+      const finalScore = Math.min(99.4, BASE_ANALYST + addedScore);
+      const finalLxd = Math.min(98.5, BASE_LXD + addedLxd);
+      const finalComm = Math.min(97.0, BASE_COMM + addedComm);
+
+      // Update Top Dial & Badges
+      const scoreDisplay = document.getElementById('sim-score-display');
+      const dialCircle = document.getElementById('sim-dial-circle');
+      const dialPct = document.getElementById('sim-dial-pct');
+      const upliftBadge = document.getElementById('sim-uplift-badge');
+      const countDisplay = document.getElementById('sim-active-count');
+      const statusMsg = document.getElementById('sim-status-message');
+
+      scoreDisplay.textContent = finalScore.toFixed(1) + '%';
+      dialPct.textContent = Math.round(finalScore) + '%';
+
+      // SVG circumference is 2 * PI * 20 = ~125.66
+      const circumference = 125.66;
+      const offset = circumference - (finalScore / 100) * circumference;
+      dialCircle.style.strokeDashoffset = offset.toFixed(1);
+
+      if (addedScore > 0) {
+        upliftBadge.textContent = '+' + addedScore.toFixed(1) + '% boost';
+        upliftBadge.classList.remove('text-zen-text-faint');
+        upliftBadge.classList.add('text-zen-emerald');
+        countDisplay.textContent = activeCount + (activeCount === 1 ? ' skill active' : ' skills active');
+        statusMsg.textContent = `Active vectors boosted Data Analyst match to ${finalScore.toFixed(1)}%. LXD asymmetric fit scaled to ${finalLxd.toFixed(1)}%.`;
+      } else {
+        upliftBadge.textContent = '+0.0% boost';
+        countDisplay.textContent = '0 skills active';
+        statusMsg.textContent = "Select booster chips on the left to simulate incremental labor market qualification gains.";
+      }
+
+      // Update Simulator Role Bars
+      document.getElementById('sim-role-analyst').textContent = finalScore.toFixed(1) + '%';
+      document.getElementById('sim-bar-analyst').style.width = Math.min(100, finalScore) + '%';
+
+      document.getElementById('sim-role-lxd').textContent = finalLxd.toFixed(1) + '%';
+      document.getElementById('sim-bar-lxd').style.width = Math.min(100, finalLxd) + '%';
+
+      document.getElementById('sim-role-comm').textContent = finalComm.toFixed(1) + '%';
+      document.getElementById('sim-bar-comm').style.width = Math.min(100, finalComm) + '%';
+
+      // Also mirror subtle boost to Step 2 Pipeline Card for end-to-end cohesion
+      const cardPrimary = document.getElementById('card-match-primary');
+      const cardPrimaryBar = document.getElementById('card-bar-primary');
+      const cardLxd = document.getElementById('card-match-lxd');
+      const cardLxdBar = document.getElementById('card-bar-lxd');
+      const cardComm = document.getElementById('card-match-comm');
+      const cardCommBar = document.getElementById('card-bar-comm');
+
+      if (cardPrimary) {
+        cardPrimary.textContent = Math.round(finalScore) + '%';
+        cardPrimaryBar.style.width = Math.round(finalScore) + '%';
+      }
+      if (cardLxd) {
+        cardLxd.textContent = Math.round(finalLxd) + '%';
+        cardLxdBar.style.width = Math.round(finalLxd) + '%';
+      }
+      if (cardComm) {
+        cardComm.textContent = Math.round(finalComm) + '%';
+        cardCommBar.style.width = Math.round(finalComm) + '%';
+      }
+    }
+
+    function resetSimulator() {
+      const chips = document.querySelectorAll('.skill-chip');
+      chips.forEach(chip => {
+        chip.setAttribute('data-active', 'false');
+        chip.classList.remove('active');
+      });
+      recalculateSimulation();
+    }
+  </script>
+<script>
+function applyHeroPreset(presetName, skillsDescription) {
+  var input = document.getElementById('hero-vector-input');
+  if (input) {
+    input.value = skillsDescription;
+  }
+  var expPaste = document.getElementById('experience-paste');
+  if (expPaste) {
+    expPaste.value = presetName + ': ' + skillsDescription;
+  }
+  var skillInput = document.getElementById('skill-input');
+  if (skillInput) {
+    skillInput.placeholder = skillsDescription;
+  }
+  var intakeWrapper = document.getElementById('intake-wrapper');
+  if (intakeWrapper) {
+    intakeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+function handleHeroSynthesize() {
+  var intakeWrapper = document.getElementById('intake-wrapper');
+  if (intakeWrapper) {
+    intakeWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (typeof triggerFindMatches === 'function') {
+    triggerFindMatches();
+  }
+}
+</script>
+<script>
+  function setWorkflowState(stateNum) {
+    const s1 = document.getElementById('workflow-state-1');
+    const s2 = document.getElementById('workflow-state-2');
+    const b1 = document.getElementById('btn-state-1');
+    const b2 = document.getElementById('btn-state-2');
+
+    if (stateNum === 1) {
+      if (s1) s1.classList.remove('hidden');
+      if (s2) s2.classList.add('hidden');
+      if (b1) {
+        b1.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zen-indigo text-white font-semibold shadow-sm transition-all flex items-center justify-center gap-2';
+      }
+      if (b2) {
+        b2.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg text-zen-text-muted hover:text-white hover:bg-zen-surface transition-all flex items-center justify-center gap-2';
+      }
+      if (s1) s1.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      if (s1) s1.classList.add('hidden');
+      if (s2) s2.classList.remove('hidden');
+      if (b2) {
+        b2.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zen-indigo text-white font-semibold shadow-sm transition-all flex items-center justify-center gap-2';
+      }
+      if (b1) {
+        b1.className = 'flex-1 sm:flex-initial px-4 py-2 rounded-lg text-zen-text-muted hover:text-white hover:bg-zen-surface transition-all flex items-center justify-center gap-2';
+      }
+      if (s2) s2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function switchIntakeTab(tab) {
+    const cAdd = document.getElementById('tab-content-add');
+    const cPaste = document.getElementById('tab-content-paste');
+    const bAdd = document.getElementById('tab-btn-add');
+    const bPaste = document.getElementById('tab-btn-paste');
+    if (tab === 'add') {
+      if (cAdd) cAdd.classList.remove('hidden');
+      if (cPaste) cPaste.classList.add('hidden');
+      if (bAdd) {
+        bAdd.classList.add('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bAdd.classList.remove('text-zen-text-muted');
+      }
+      if (bPaste) {
+        bPaste.classList.remove('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bPaste.classList.add('text-zen-text-muted');
+      }
+    } else {
+      if (cAdd) cAdd.classList.add('hidden');
+      if (cPaste) cPaste.classList.remove('hidden');
+      if (bPaste) {
+        bPaste.classList.add('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bPaste.classList.remove('text-zen-text-muted');
+      }
+      if (bAdd) {
+        bAdd.classList.remove('bg-zen-indigo', 'text-white', 'font-semibold', 'shadow-sm');
+        bAdd.classList.add('text-zen-text-muted');
+      }
+    }
+  }
+
+  function removeSkillItem(btn) {
+    const item = btn.closest('.skill-item');
+    if (item) {
+      item.remove();
+      const list = document.querySelectorAll('#active-skills-list .skill-item');
+      const countSpan = document.getElementById('skill-count');
+      if (countSpan) countSpan.textContent = list.length;
+    }
+  }
+
+  function addCustomSkill() {
+    const input = document.getElementById('skill-input');
+    if (!input || !input.value.trim()) return;
+    addPresetSkill(input.value.trim(), 'Adv');
+    input.value = '';
+  }
+
+  function addPresetSkill(name, level) {
+    const list = document.getElementById('active-skills-list');
+    if (!list) return;
+    const div = document.createElement('div');
+    div.className = 'skill-item flex items-center justify-between p-2.5 rounded-xl bg-zen-card border border-zen-border group hover:border-zen-indigo/40 transition-all';
+    div.innerHTML = `
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="w-1.5 h-1.5 rounded-full bg-zen-indigo-light"></span>
+        <span class="text-xs font-medium text-white truncate">${name}</span>
+      </div>
+      <div class="flex items-center gap-1.5 shrink-0">
+        <select class="bg-zen-surface border border-zen-border rounded text-[10px] text-zen-cyan px-1.5 py-0.5 focus:ring-0 focus:outline-none font-mono cursor-pointer">
+          <option ${level === 'Adv' ? 'selected' : ''} value="Adv">Advanced</option>
+          <option ${level === 'Int' ? 'selected' : ''} value="Int">Intermediate</option>
+          <option ${level === 'Beg' ? 'selected' : ''} value="Beg">Beginner</option>
+        </select>
+        <button onclick="removeSkillItem(this)" class="text-zen-text-faint hover:text-white p-0.5 transition-colors" title="Remove" type="button">
+          <span class="material-symbols-outlined text-[14px]">close</span>
+        </button>
+      </div>
+    `;
+    list.appendChild(div);
+    const countSpan = document.getElementById('skill-count');
+    if (countSpan) {
+      const items = document.querySelectorAll('#active-skills-list .skill-item');
+      countSpan.textContent = items.length;
+    }
+  }
+</script></body></html>

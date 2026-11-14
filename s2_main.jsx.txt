@@ -1,0 +1,574 @@
+<main className="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-12 pb-24 space-y-20"><div className="flex flex-col w-full">
+{/*  Interactive Stepper Track  */}
+<section className="w-full mb-10">
+<div className="relative bg-surface-container-low rounded-xl p-4 shadow-sm">
+<div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+{/*  Step 1: Intake (Completed)  */}
+<div className="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container transition-all">
+<div className="w-7 h-7 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center shrink-0">
+<span className="material-symbols-outlined text-[16px]" style={{"fontVariationSettings":"'FILL' 1"}}>check</span>
+</div>
+<div className="min-w-0">
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-tertiary block">Step 01</span>
+<span className="font-body-sm text-body-sm text-on-surface truncate block font-medium">Profile Intake</span>
+</div>
+</div>
+{/*  Step 2: Skills (Active)  */}
+<div className="flex items-center gap-3 p-2.5 rounded-lg bg-primary-container text-on-primary-container shadow-md">
+<div className="w-7 h-7 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 font-label-md text-label-md font-bold">
+            2
+          </div>
+<div className="min-w-0">
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container/80 block">Active Phase</span>
+<span className="font-headline-sm text-label-lg text-on-primary-container truncate block font-bold">Review Skills</span>
+</div>
+</div>
+{/*  Step 3: Careers (Upcoming)  */}
+<div className="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-lowest/60 text-outline">
+<div className="w-7 h-7 rounded-full bg-surface-container text-outline-variant flex items-center justify-center shrink-0 font-label-md text-label-md font-medium">
+            3
+          </div>
+<div className="min-w-0">
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-outline-variant block">Upcoming</span>
+<span className="font-body-sm text-body-sm text-on-surface-variant/70 truncate block">Career Matches</span>
+</div>
+</div>
+{/*  Step 4: Roadmap (Upcoming)  */}
+<div className="flex items-center gap-3 p-2.5 rounded-lg bg-surface-container-lowest/60 text-outline">
+<div className="w-7 h-7 rounded-full bg-surface-container text-outline-variant flex items-center justify-center shrink-0 font-label-md text-label-md font-medium">
+            4
+          </div>
+<div className="min-w-0">
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-outline-variant block">Upcoming</span>
+<span className="font-body-sm text-body-sm text-on-surface-variant/70 truncate block">Action Roadmap</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/*  Editorial Context Ribbon & Header  */}
+<section className="w-full mb-12">
+<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+<div className="space-y-2 max-w-2xl">
+<div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Natural Language Vectorization Done
+        </div>
+<h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+          Here are the skills we found
+        </h1>
+<p className="font-body-lg text-body-lg text-on-surface-variant">
+          Based on what you described, we identified transferable meta-skills and technical capabilities. Review, remove anything that doesn't fit, or add missing skills before exploring careers.
+        </p>
+</div>
+{/*  Quick Evidence Toggle or Telemetry Badge  */}
+<div className="hidden lg:flex flex-col items-end shrink-0">
+<span className="font-label-sm text-label-sm text-outline uppercase font-mono">Parser Engine Status</span>
+<span className="font-data-metric text-data-metric text-tertiary flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[18px]">verified</span>
+          Synthesized (v4.2)
+        </span>
+</div>
+</div>
+{/*  Summary Quote Card / Source Context  */}
+<div className="w-full bg-surface-container rounded-xl p-5 shadow-sm relative overflow-hidden">
+<div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+<div className="flex items-start gap-3.5">
+<div className="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span className="material-symbols-outlined text-[20px]">format_quote</span>
+</div>
+<div className="space-y-1">
+<div className="flex items-center gap-2">
+<span className="font-label-sm text-label-sm uppercase text-outline tracking-wider">Source Submission</span>
+<span className="font-label-sm text-label-sm text-primary px-2 py-0.5 rounded bg-surface-container-highest">120 Words Parsed</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface italic pr-2">
+              “I organized a 3-day university design sprint with 120 attendees, coordinated 18 volunteer facilitators, tracked a $4,500 budget in Google Sheets with pivot tables, built an automated Discord update bot using Python, and gathered attendee feedback through surveys to present metric takeaways to faculty.”
+            </p>
+</div>
+</div>
+<button className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all self-start sm:self-center"  type="button">
+<span className="material-symbols-outlined text-[16px]">edit_note</span>
+          Edit Experience
+        </button>
+</div>
+</div>
+</section>
+{/*  Main 2-Column Evaluation Grid  */}
+<section className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+{/*  Left Column (65% approx: 8 columns out of 12)  */}
+<div className="lg:col-span-8 flex flex-col gap-8">
+{/*  Skill Inventory Card Container  */}
+<div className="w-full bg-surface-container-low rounded-xl p-6 sm:p-7 shadow-sm space-y-6">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4">
+<div>
+<h2 className="font-headline-sm text-headline-sm text-on-surface">Identified Skill Vectors</h2>
+<p className="font-body-sm text-body-sm text-on-surface-variant">Click the cross on any chip to exclude it from downstream matching.</p>
+</div>
+<div className="flex items-center gap-2">
+<span className="font-label-sm text-label-sm text-outline uppercase font-mono">Active Stack:</span>
+<span className="font-label-md text-label-md font-bold text-on-primary-container px-2 py-0.5 rounded-full bg-primary-container" id="active-skill-counter">6 Total</span>
+</div>
+</div>
+{/*  Inferred Skill Chips Grid  */}
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="skills-cloud-grid">
+{/*  Chip 1  */}
+<div className="skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative" data-category="transferable">
+<div className="flex items-start justify-between gap-3">
+<div className="space-y-1 min-w-0">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-tertiary"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wide text-tertiary">Transferable</span>
+</div>
+<h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+                  Budget Tracking &amp; Financial Reporting
+                </h3>
+</div>
+<button className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+<span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">find_in_page</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+                “tracked a $4,500 budget in Google Sheets with pivot tables”
+              </p>
+</div>
+</div>
+{/*  Chip 2  */}
+<div className="skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative" data-category="transferable">
+<div className="flex items-start justify-between gap-3">
+<div className="space-y-1 min-w-0">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-tertiary"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wide text-tertiary">Transferable</span>
+</div>
+<h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+                  Team &amp; Volunteer Coordination
+                </h3>
+</div>
+<button className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+<span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">find_in_page</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+                “coordinated 18 volunteer facilitators across 3 days”
+              </p>
+</div>
+</div>
+{/*  Chip 3  */}
+<div className="skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative" data-category="technical">
+<div className="flex items-start justify-between gap-3">
+<div className="space-y-1 min-w-0">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-primary-container"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wide text-primary">Technical</span>
+</div>
+<h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+                  Python Scripting &amp; Bot Automation
+                </h3>
+</div>
+<button className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+<span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">find_in_page</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+                “built an automated Discord update bot using Python”
+              </p>
+</div>
+</div>
+{/*  Chip 4  */}
+<div className="skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative" data-category="transferable">
+<div className="flex items-start justify-between gap-3">
+<div className="space-y-1 min-w-0">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-tertiary"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wide text-tertiary">Transferable</span>
+</div>
+<h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+                  Survey Design &amp; Quantitative Feedback
+                </h3>
+</div>
+<button className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+<span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">find_in_page</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+                “gathered attendee feedback through surveys”
+              </p>
+</div>
+</div>
+{/*  Chip 5  */}
+<div className="skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative" data-category="transferable">
+<div className="flex items-start justify-between gap-3">
+<div className="space-y-1 min-w-0">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-tertiary"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wide text-tertiary">Transferable</span>
+</div>
+<h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+                  Stakeholder Presentation
+                </h3>
+</div>
+<button className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+<span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">find_in_page</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+                “present metric takeaways to faculty”
+              </p>
+</div>
+</div>
+{/*  Chip 6  */}
+<div className="skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative" data-category="transferable">
+<div className="flex items-start justify-between gap-3">
+<div className="space-y-1 min-w-0">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-tertiary"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wide text-tertiary">Transferable</span>
+</div>
+<h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+                  Event Operations &amp; Logistics
+                </h3>
+</div>
+<button className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+<span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">find_in_page</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+                “organized a 3-day university design sprint with 120 attendees”
+              </p>
+</div>
+</div>
+</div>
+{/*  Add Custom Skill Bar  */}
+<div className="pt-4 space-y-3">
+<label className="font-label-md text-label-md text-on-surface-variant block" htmlFor="new-skill-input">
+            Add Missing Skill or Tool
+          </label>
+<div className="flex flex-col sm:flex-row gap-2.5">
+<div className="relative flex-1">
+<span className="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">add_circle</span>
+<input className="w-full bg-surface-container-high text-on-surface pl-10 pr-4 py-2.5 rounded-lg font-body-md text-body-md placeholder:text-outline-variant focus:outline-none focus:bg-surface-container-highest transition-colors shadow-inner" id="new-skill-input" placeholder="Type a skill e.g. SQL, Public Speaking, Figma..." type="text"/>
+</div>
+<button className="px-5 py-2.5 bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-lg text-label-lg rounded-lg transition-all flex items-center justify-center gap-1.5 shrink-0" id="add-skill-button"  type="button">
+<span className="material-symbols-outlined text-[18px]">add</span>
+              Add Skill
+            </button>
+</div>
+{/*  Suggested Quick Chips  */}
+<div className="flex flex-wrap items-center gap-2 pt-2">
+<span className="font-label-sm text-label-sm text-outline uppercase">Quick Suggestions:</span>
+<button className="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-body-sm text-body-sm transition-all flex items-center gap-1"  type="button">
+<span>+ Data Visualization</span>
+</button>
+<button className="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-body-sm text-body-sm transition-all flex items-center gap-1"  type="button">
+<span>+ Agile / Kanban</span>
+</button>
+<button className="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-body-sm text-body-sm transition-all flex items-center gap-1"  type="button">
+<span>+ Community Management</span>
+</button>
+</div>
+</div>
+{/*  Transparency Callout Card  */}
+<div className="p-4 rounded-xl bg-surface-container-lowest flex items-start gap-3.5 mt-4">
+<span className="material-symbols-outlined text-primary-container text-[20px] shrink-0 mt-0.5">info</span>
+<div className="space-y-1">
+<span className="font-label-md text-label-md text-on-surface font-bold">Inference Transparency</span>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Inferred skills are helpful starting points extracted directly from your written experience, not certified professional credentials. You are in full control to refine, reject, or enrich them.
+            </p>
+</div>
+</div>
+</div>
+{/*  Skill Visual Richness: Coverage Radar SVG & Evidence Breakdown  */}
+<div className="w-full bg-surface-container-low rounded-xl p-6 shadow-sm flex flex-col md:flex-row items-center gap-6">
+{/*  SVG Donut Chart for Coverage Visual  */}
+<div className="relative w-32 h-32 shrink-0 flex items-center justify-center">
+<svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+{/*  Background Ring  */}
+<path className="text-surface-container-high stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" strokeWidth="3.5"></path>
+{/*  Transferable Slice (66%)  */}
+<path className="text-tertiary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" strokeDasharray="66.6, 100" strokeLinecap="round" strokeWidth="3.5"></path>
+{/*  Technical Overlay (33.3%) offset  */}
+<path className="text-primary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" strokeDasharray="33.3, 100" strokeDashoffset="-66.6" strokeLinecap="round" strokeWidth="3.5"></path>
+</svg>
+<div className="absolute inset-0 flex flex-col items-center justify-center">
+<span className="font-headline-sm text-headline-sm text-on-surface font-bold">100%</span>
+<span className="font-label-sm text-label-sm text-outline uppercase font-mono">Matched</span>
+</div>
+</div>
+<div className="space-y-2 flex-1">
+<div className="flex items-center gap-4">
+<div className="flex items-center gap-1.5">
+<span className="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span className="font-label-sm text-label-sm text-on-surface">Transferable (80%)</span>
+</div>
+<div className="flex items-center gap-1.5">
+<span className="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span className="font-label-sm text-label-sm text-on-surface">Technical (20%)</span>
+</div>
+</div>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+            Our natural language taxonomy mapped every clause of your sprint coordination description to functional labor market standards.
+          </p>
+</div>
+</div>
+</div>
+{/*  Right Column (35% approx: 4 columns out of 12)  */}
+<div className="lg:col-span-4 flex flex-col gap-6">
+{/*  Experience Analysis Breakdown Card  */}
+<div className="w-full bg-surface-container rounded-xl p-6 shadow-sm space-y-6">
+<div className="flex items-center justify-between pb-3">
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-outline">Telemetry Diagnostic</span>
+<span className="material-symbols-outlined text-tertiary text-[20px]">analytics</span>
+</div>
+<div className="space-y-4">
+<div className="p-3.5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<span className="font-body-md text-body-md text-on-surface-variant">Skills Identified</span>
+<span className="font-data-metric text-data-metric text-on-surface font-bold" id="stat-total-skills">6 skills</span>
+</div>
+<div className="p-3.5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<span className="font-body-md text-body-md text-on-surface-variant">Taxonomy Balance</span>
+<span className="font-body-md text-body-md text-primary font-semibold" id="stat-skill-ratio">4 Transferable / 2 Tech</span>
+</div>
+<div className="p-3.5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<span className="font-body-md text-body-md text-on-surface-variant">Source Coverage</span>
+<span className="font-data-metric text-data-metric text-tertiary font-bold">100% mapped</span>
+</div>
+<div className="p-3.5 rounded-lg bg-surface-container-high flex items-center justify-between">
+<span className="font-body-md text-body-md text-on-surface-variant">Context Density</span>
+<span className="font-label-md text-label-md uppercase tracking-wider px-2 py-0.5 rounded bg-tertiary-container text-on-tertiary font-bold">High Density</span>
+</div>
+</div>
+<div className="pt-2">
+<span className="font-label-sm text-label-sm uppercase text-outline block mb-2">Simulated Trajectory Resonance</span>
+{/*  Micro Bar Chart Inline  */}
+<div className="space-y-2 font-mono text-[11px]">
+<div>
+<div className="flex justify-between text-on-surface-variant mb-1">
+<span>Operations &amp; PM</span>
+<span className="text-tertiary">94%</span>
+</div>
+<div className="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div className="bg-tertiary h-full rounded-full" style={{"width":"94%"}}></div>
+</div>
+</div>
+<div>
+<div className="flex justify-between text-on-surface-variant mb-1">
+<span>Data Analytics</span>
+<span className="text-primary">88%</span>
+</div>
+<div className="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div className="bg-primary h-full rounded-full" style={{"width":"88%"}}></div>
+</div>
+</div>
+<div>
+<div className="flex justify-between text-on-surface-variant mb-1">
+<span>Community &amp; Guild Ops</span>
+<span className="text-secondary-fixed-dim">82%</span>
+</div>
+<div className="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div className="bg-secondary-fixed-dim h-full rounded-full" style={{"width":"82%"}}></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{/*  Preview Teaser & Next Step Hub  */}
+<div className="w-full bg-surface-container-high rounded-xl p-6 shadow-md space-y-5">
+<div className="space-y-2">
+<div className="flex items-center gap-2">
+<span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span className="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold">Next Synthesis</span>
+</div>
+<h3 className="font-headline-sm text-headline-sm text-on-surface">Explore Matched Careers</h3>
+<p className="font-body-sm text-body-sm text-on-surface-variant" id="preview-teaser-text">
+            Next: We'll match these 6 verified skills against real-world roles across analytics, operations, and coordination.
+          </p>
+</div>
+{/*  Action CTAs  */}
+<div className="pt-2 space-y-3">
+<button className="w-full py-3.5 px-6 rounded-lg bg-primary text-on-primary hover:bg-primary-fixed transition-all font-label-lg text-label-lg font-bold shadow-md flex items-center justify-center gap-2 group cursor-pointer" id="cta-match-careers"  type="button">
+<span>Show career matches</span>
+<span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button className="w-full py-2.5 px-4 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all font-body-sm text-body-sm flex items-center justify-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[16px]">arrow_back</span>
+            Back to edit experience
+          </button>
+</div>
+</div>
+{/*  Visual Graphic Feature: Context Snapshot  */}
+<div className="w-full rounded-xl overflow-hidden shadow-sm relative group bg-surface-container">
+<div className="w-full h-36 bg-cover bg-center opacity-70 group-hover:opacity-90 transition-opacity" data-alt="Futuristic glowing purple data analytics dashboard displaying neural network graphs, network nodes, and career trajectory vectors in a high-tech obsidian laboratory." style={{"backgroundImage":"url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxA-vzDXcAdt6ABGFSMUMd5e8QcPcyw8ZuvSv9nSsl0UgG4s8hGPVtjZ40vRubdzHPGlI4F1IGB8h5_cL65ziCWzZSvhyE_8kGGrK03xp9LQL6JYNC05c-_1rO1yqzCyg62fU5m6HeQDrXd4h0TsNSTX6Ca32Q8pYx_ps-s828z6Rbz2UdFT49lquAUMdpmgg2Wpl_7JKA8vuzopOShrJp6ffgcksNF-o25k4WVdM')"}}></div>
+<div className="p-4 bg-surface-container-lowest flex items-center justify-between">
+<div className="min-w-0">
+<span className="font-label-sm text-label-sm uppercase text-outline block">Deep Taxonomy</span>
+<span className="font-body-sm text-body-sm text-on-surface truncate block font-medium">Labor Market Alignment</span>
+</div>
+<span className="material-symbols-outlined text-primary text-[20px]">hub</span>
+</div>
+</div>
+</div>
+</section>
+{/*  Informational Legal & Exploration Disclaimer  */}
+<section className="w-full pt-6 pb-4">
+<div className="p-4 rounded-xl bg-surface-container-lowest/60 text-outline-variant flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-body-sm text-body-sm">
+<div className="flex items-center gap-2">
+<span className="material-symbols-outlined text-[16px]">verified_user</span>
+<span>CareerMatch AI operates on privacy-first telemetry. User inputs are parsed locally and vector-matched without third-party retraining.</span>
+</div>
+<div className="flex items-center gap-4 shrink-0 text-outline">
+<a className="hover:text-on-surface transition-colors" href="#">Methodology</a>
+<span>•</span>
+<a className="hover:text-on-surface transition-colors" href="#">Taxonomy v4.2</a>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple Interactive State Management for Step 2
+  function updateSkillCounts() {
+    const items = document.querySelectorAll('.skill-vector-item');
+    const totalCount = items.length;
+    let transferableCount = 0;
+    let technicalCount = 0;
+
+    items.forEach(item => {
+      const cat = item.getAttribute('data-category');
+      if (cat === 'technical') {
+        technicalCount++;
+      } else {
+        transferableCount++;
+      }
+    });
+
+    // Update Counter Badges
+    const counterBadge = document.getElementById('active-skill-counter');
+    if (counterBadge) counterBadge.textContent = totalCount + ' Total';
+
+    const statTotal = document.getElementById('stat-total-skills');
+    if (statTotal) statTotal.textContent = totalCount + ' skills';
+
+    const statRatio = document.getElementById('stat-skill-ratio');
+    if (statRatio) statRatio.textContent = `${transferableCount} Transferable / ${technicalCount} Tech`;
+
+    const previewTeaser = document.getElementById('preview-teaser-text');
+    if (previewTeaser) {
+      previewTeaser.textContent = `Next: We'll match these ${totalCount} verified skills against real-world roles across analytics, operations, and coordination.`;
+    }
+  }
+
+  function removeSkillCard(btn) {
+    const card = btn.closest('.skill-vector-item');
+    if (card) {
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.95)';
+      card.style.transition = 'all 0.2s ease-out';
+      setTimeout(() => {
+        card.remove();
+        updateSkillCounts();
+      }, 200);
+    }
+  }
+
+  function addNewSkillFromInput() {
+    const input = document.getElementById('new-skill-input');
+    if (!input || !input.value.trim()) return;
+    const skillName = input.value.trim();
+    createSkillCard(skillName, 'transferable', 'User added manual skill capability');
+    input.value = '';
+    updateSkillCounts();
+  }
+
+  function quickAddSkill(skillName, category) {
+    createSkillCard(skillName, category, 'User quick-added from domain suggestions');
+    updateSkillCounts();
+  }
+
+  function createSkillCard(name, category, snippet) {
+    const container = document.getElementById('skills-cloud-grid');
+    if (!container) return;
+
+    const isTech = category === 'technical';
+    const tagColor = isTech ? 'bg-primary-container text-primary' : 'bg-tertiary text-tertiary';
+    const tagLabel = isTech ? 'Technical' : 'Transferable';
+    const dotColor = isTech ? 'bg-primary-container' : 'bg-tertiary';
+
+    const card = document.createElement('div');
+    card.className = 'skill-vector-item flex flex-col justify-between p-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all shadow-sm group relative animate-in fade-in zoom-in-95 duration-200';
+    card.setAttribute('data-category', category);
+
+    card.innerHTML = `
+      <div className="flex items-start justify-between gap-3">
+        <div className="space-y-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full ${dotColor}"></span>
+            <span className="font-label-sm text-label-sm uppercase tracking-wide ${tagColor.split(' ')[1]}">${tagLabel}</span>
+          </div>
+          <h3 className="font-label-lg text-label-lg text-on-surface font-bold group-hover:text-primary transition-colors">
+            ${escapeHtml(name)}
+          </h3>
+        </div>
+        <button type="button"  title="Remove skill" className="text-outline hover:text-error transition-colors p-1 rounded hover:bg-surface-container-highest">
+          <span className="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+      <div className="mt-3.5 pt-3 bg-surface-container-lowest/40 rounded-lg p-2.5 flex items-start gap-2">
+        <span className="material-symbols-outlined text-[15px] text-outline shrink-0 mt-0.5">add_task</span>
+        <p className="font-body-sm text-body-sm text-on-surface-variant/90 italic line-clamp-2">
+          &ldquo;${escapeHtml(snippet)}&rdquo;
+        </p>
+      </div>
+    `;
+
+    container.appendChild(card);
+  }
+
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+      return ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;',
+        '`': '&#x60;',
+        '=': '&#x3D;'
+      })[s];
+    });
+  }
+
+  function goToStep3() {
+    if (typeof goToStage === 'function') {
+      goToStage(3);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Handle enter key on input
+  document.addEventListener('DOMContentLoaded', () => {
+    const input = document.getElementById('new-skill-input');
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addNewSkillFromInput();
+        }
+      });
+    }
+  });
+</script></main>

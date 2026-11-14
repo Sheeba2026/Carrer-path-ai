@@ -1,0 +1,666 @@
+<main className="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-12 pb-24 space-y-20">{/*  Direct Hero Section  */}
+<section className="pt-2 pb-6 text-center space-y-4 max-w-3xl mx-auto">
+<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zen-indigo/10 border border-zen-indigo/30 text-zen-indigo-light text-xs font-mono">
+<span className="material-symbols-outlined text-[15px]">neurology</span>
+<span>Deterministic Transferable Skills Discovery</span>
+</div>
+<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight font-sans">
+    Discover careers that fit <span className="text-zen-indigo-light">what you’ve done</span>.
+  </h1>
+<p className="text-zen-text-muted text-sm sm:text-base leading-relaxed font-sans max-w-2xl mx-auto">
+    Describe a project, internship, college activity, or everyday responsibility. Explore the skills behind it and discover careers worth considering.
+  </p>
+</section>
+{/*  4-Stage Progressive Workflow Stepper Bar  */}
+<nav aria-label="Career discovery stages" className="w-full max-w-4xl mx-auto p-2 rounded-2xl bg-zen-surface border border-zen-border shadow-lg">
+<ol className="grid grid-cols-2 sm:grid-cols-4 gap-2" id="workflow-stepper">
+{/*  Step 1  */}
+<li>
+<button aria-current="step" className="w-full flex items-center gap-2.5 p-2.5 rounded-xl bg-zen-indigo text-white font-semibold shadow-sm transition-all text-left text-xs" id="step-btn-1"  type="button">
+<span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center font-mono text-[11px] shrink-0">1</span>
+<div className="min-w-0">
+<span className="block text-[10px] uppercase tracking-wider text-white/70 font-mono">Step 1</span>
+<span className="block truncate font-medium text-white">Describe Experience</span>
+</div>
+</button>
+</li>
+{/*  Step 2  */}
+<li>
+<button className="w-full flex items-center gap-2.5 p-2.5 rounded-xl text-zen-text-muted hover:text-white hover:bg-zen-card/60 transition-all text-left text-xs" id="step-btn-2"  type="button">
+<span className="w-6 h-6 rounded-full bg-zen-surface border border-zen-border flex items-center justify-center font-mono text-[11px] shrink-0 text-zen-text-faint">2</span>
+<div className="min-w-0">
+<span className="block text-[10px] uppercase tracking-wider text-zen-text-faint font-mono">Step 2</span>
+<span className="block truncate font-medium">Review Skills</span>
+</div>
+</button>
+</li>
+{/*  Step 3  */}
+<li>
+<button className="w-full flex items-center gap-2.5 p-2.5 rounded-xl text-zen-text-muted hover:text-white hover:bg-zen-card/60 transition-all text-left text-xs" id="step-btn-3"  type="button">
+<span className="w-6 h-6 rounded-full bg-zen-surface border border-zen-border flex items-center justify-center font-mono text-[11px] shrink-0 text-zen-text-faint">3</span>
+<div className="min-w-0">
+<span className="block text-[10px] uppercase tracking-wider text-zen-text-faint font-mono">Step 3</span>
+<span className="block truncate font-medium">Explore Careers</span>
+</div>
+</button>
+</li>
+{/*  Step 4  */}
+<li>
+<button className="w-full flex items-center gap-2.5 p-2.5 rounded-xl text-zen-text-muted hover:text-white hover:bg-zen-card/60 transition-all text-left text-xs" id="step-btn-4"  type="button">
+<span className="w-6 h-6 rounded-full bg-zen-surface border border-zen-border flex items-center justify-center font-mono text-[11px] shrink-0 text-zen-text-faint">4</span>
+<div className="min-w-0">
+<span className="block text-[10px] uppercase tracking-wider text-zen-text-faint font-mono">Step 4</span>
+<span className="block truncate font-medium">Learning Plan</span>
+</div>
+</button>
+</li>
+</ol>
+</nav>
+{/*  =========================================================================
+     STAGE 1: DESCRIBE EXPERIENCE
+     =========================================================================  */}
+<div className="w-full max-w-4xl mx-auto space-y-6" id="stage-1-container">
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 sm:p-8 space-y-6 shadow-2xl relative">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-zen-border-subtle gap-3">
+<div>
+<h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">Tell us about something you’ve done</h2>
+<p className="text-xs sm:text-sm text-zen-text-muted mt-1 leading-relaxed">
+          Explain what you worked on, what you did, and what happened. Informal experience, club work, or coursework counts too.
+        </p>
+</div>
+<div className="flex items-center gap-2 shrink-0">
+<button className="px-3 py-1.5 rounded-lg border border-zen-border hover:border-zen-text-muted bg-zen-card text-zen-text-muted hover:text-white text-xs font-mono transition-colors flex items-center gap-1.5"  title="Clear text" type="button">
+<span className="material-symbols-outlined text-[14px]">delete_sweep</span>
+<span>Clear</span>
+</button>
+<button className="px-3 py-1.5 rounded-lg border border-zen-indigo/40 hover:border-zen-indigo bg-zen-indigo/10 text-zen-indigo-light hover:text-white text-xs font-mono transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[14px]">auto_fix_high</span>
+<span>Try an example</span>
+</button>
+</div>
+</div>
+{/*  Quick Example Chips  */}
+<div className="space-y-2">
+<span className="text-[11px] font-mono uppercase tracking-wider text-zen-text-faint">Click a realistic example to populate:</span>
+<div className="flex flex-wrap items-center gap-2">
+<button className="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-indigo-light">event</span>
+<span>College Event Coordinator</span>
+</button>
+<button className="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-cyan">dataset</span>
+<span>Analytics Internship</span>
+</button>
+<button className="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-emerald">volunteer_activism</span>
+<span>Community Volunteering</span>
+</button>
+<button className="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-indigo-light">code</span>
+<span>Freelance Web Bot</span>
+</button>
+<button className="px-3 py-1.5 rounded-lg bg-zen-card hover:bg-zen-border border border-zen-border text-zen-text-muted hover:text-white text-xs transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-cyan">school</span>
+<span>Lab Coursework Capstone</span>
+</button>
+</div>
+</div>
+{/*  Large Textarea  */}
+<div className="space-y-2">
+<label className="sr-only" htmlFor="experience-text-input">Experience Description</label>
+<textarea className="w-full p-4 bg-zen-card border border-zen-border rounded-xl text-white placeholder-zen-text-faint text-sm leading-relaxed focus:ring-2 focus:ring-zen-indigo focus:border-zen-indigo transition-all font-sans" id="experience-text-input" placeholder="I helped organize a college event, coordinated volunteers, tracked expenses, and promoted it on social media." rows="6">I organized a 3-day university design sprint with 120 attendees, coordinated 18 volunteer facilitators, tracked a $4,500 budget in Google Sheets with pivot tables, built an automated Discord update bot using Python, and gathered attendee feedback through surveys to present metric takeaways to faculty.</textarea>
+<div className="hidden p-3 rounded-lg bg-zen-surface border border-zen-indigo/30 text-zen-indigo-light text-xs flex items-center gap-2" id="validation-warning">
+<span className="material-symbols-outlined text-[16px]">info</span>
+<span>Add a little more detail about what you did (at least 20 characters) so we can identify relevant skills.</span>
+</div>
+</div>
+{/*  Optional Context Accordion (Interests & Work Preferences)  */}
+<div className="rounded-xl border border-zen-border bg-zen-card/50 overflow-hidden">
+<button className="w-full p-3.5 flex items-center justify-between text-xs text-zen-text-muted hover:text-white font-medium transition-colors text-left" id="btn-optional-context"  type="button">
+<span className="flex items-center gap-2">
+<span className="material-symbols-outlined text-[16px] text-zen-cyan">tune</span>
+<span>+ Optional: Target Interests &amp; Work Preferences (Remote, Collaborative, Analytical)</span>
+</span>
+<span className="material-symbols-outlined text-[16px] transition-transform duration-200" id="optional-chevron">expand_more</span>
+</button>
+<div className="hidden p-4 border-t border-zen-border space-y-4 text-xs" id="optional-context-panel">
+<div className="space-y-2">
+<span className="font-mono uppercase tracking-wider text-[11px] text-zen-text-faint">Preferred Work Setting</span>
+<div className="flex flex-wrap gap-2">
+<button className="pref-chip px-3 py-1.5 rounded-lg border border-zen-border bg-zen-card text-white hover:border-zen-indigo transition-all flex items-center gap-1.5" data-selected="true"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-indigo-light">home_work</span>
+<span>Remote-friendly</span>
+</button>
+<button className="pref-chip px-3 py-1.5 rounded-lg border border-zen-border bg-zen-card text-white hover:border-zen-cyan transition-all flex items-center gap-1.5" data-selected="true"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-cyan">groups</span>
+<span>Collaborative Teams</span>
+</button>
+<button className="pref-chip px-3 py-1.5 rounded-lg border border-zen-border bg-zen-card text-zen-text-muted hover:border-zen-emerald transition-all flex items-center gap-1.5" data-selected="false"  type="button">
+<span className="material-symbols-outlined text-[14px] text-zen-emerald">query_stats</span>
+<span>Analytical Focus</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+{/*  Primary Action  */}
+<div className="pt-4 border-t border-zen-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+<div className="text-xs text-zen-text-faint font-sans flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-zen-emerald">check_circle</span>
+<span>Skill vectors are extracted transparently without automated keyword blacklisting.</span>
+</div>
+<button className="w-full sm:w-auto px-8 py-3 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white font-bold text-sm tracking-wide shadow-2xl hover:shadow-indigo-500/25 transition-all flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer"  type="button">
+<span>Find my career matches</span>
+<span className="text-base">✨</span>
+</button>
+</div>
+</div>
+</div>
+{/*  =========================================================================
+     INTERACTIVE PROCESSING STATE (Overlay Modal)
+     =========================================================================  */}
+<div className="hidden fixed inset-0 z-50 bg-[#0B0E17]/85 backdrop-blur-md flex items-center justify-center p-4" id="processing-state">
+<div className="max-w-md w-full rounded-2xl border border-zen-border bg-zen-surface p-8 text-center space-y-6 shadow-2xl">
+<div className="w-14 h-14 rounded-2xl bg-zen-indigo/10 border border-zen-indigo/30 flex items-center justify-center mx-auto text-zen-indigo animate-pulse">
+<span className="material-symbols-outlined text-[28px]">neurology</span>
+</div>
+<div className="space-y-2">
+<h3 className="text-lg font-bold text-white" id="processing-title">Analyzing your experience...</h3>
+<p className="text-xs text-zen-text-muted font-mono" id="processing-step-desc">Extracting transferable skill vectors...</p>
+</div>
+<div className="space-y-2 text-left font-mono text-xs border-l border-zen-border pl-3 mx-auto max-w-xs text-zen-text-muted">
+<div className="flex items-center gap-2 text-zen-indigo-light">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-indigo-light animate-pulse"></span>
+<span>Deconstructing action statements</span>
+</div>
+<div className="flex items-center gap-2 text-zen-cyan">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-cyan"></span>
+<span>Mapping transferable capabilities</span>
+</div>
+<div className="flex items-center gap-2 text-zen-emerald">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span>
+<span>Cross-referencing labor market paths</span>
+</div>
+</div>
+</div>
+</div>
+{/*  =========================================================================
+     STAGE 2: REVIEW SKILLS
+     =========================================================================  */}
+<div className="hidden w-full max-w-4xl mx-auto space-y-6" id="stage-2-container">
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 sm:p-8 space-y-6 shadow-2xl">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-zen-border-subtle gap-3">
+<div>
+<div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zen-indigo/10 border border-zen-indigo/30 text-zen-indigo-light text-[11px] font-mono mb-2">
+<span>STAGE 2</span>
+<span>•</span>
+<span>TRANSFERABLE CAPABILITIES</span>
+</div>
+<h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">Here are the skills we found</h2>
+<p className="text-xs sm:text-sm text-zen-text-muted mt-1 leading-relaxed">
+          Review the transferable capabilities extracted from your experience. Inferred skills are starting points, not verified credentials.
+        </p>
+</div>
+<button className="px-3.5 py-1.5 rounded-xl border border-zen-border hover:border-zen-indigo bg-zen-card text-white text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto"  type="button">
+<span className="material-symbols-outlined text-[15px] text-zen-indigo-light">edit</span>
+<span>Edit experience</span>
+</button>
+</div>
+{/*  Quick Add New Skill Input  */}
+<div className="flex flex-col sm:flex-row items-stretch gap-2.5">
+<div className="flex-1 relative flex items-center">
+<span className="material-symbols-outlined absolute left-3.5 text-zen-indigo text-[18px]">add_circle</span>
+<input className="w-full pl-10 pr-4 py-2.5 bg-zen-card border border-zen-border rounded-xl text-white placeholder-zen-text-faint text-xs focus:ring-2 focus:ring-zen-indigo focus:border-zen-indigo transition-all font-sans" id="custom-skill-input"  placeholder="Add another skill or tool (e.g., Notion, User Interviews, Tableau)..." type="text"/>
+</div>
+<button className="px-5 py-2.5 rounded-xl bg-zen-card hover:bg-zen-border border border-zen-border text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"  type="button">
+<span>Add Skill</span>
+</button>
+</div>
+{/*  Identified Skills Badges Grid  */}
+<div className="space-y-3">
+<div className="flex items-center justify-between text-xs">
+<span className="font-mono uppercase tracking-wider text-[11px] text-zen-text-faint">
+          Identified Skills (<span id="badge-count">6</span>)
+        </span>
+<span className="text-[11px] text-zen-text-faint font-mono">Click ✕ to remove any skill</span>
+</div>
+<div className="flex flex-wrap gap-2.5" id="skills-badge-list">
+{/*  Inferred Badge 1  */}
+<div className="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-indigo/10 border border-zen-indigo/30 text-white text-xs font-medium">
+<span className="material-symbols-outlined text-[13px] text-zen-indigo-light">auto_awesome</span>
+<span>Event Logistics &amp; Coordination</span>
+<span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-indigo/20 text-zen-indigo-light">Inferred</span>
+<button className="text-zen-text-faint hover:text-white transition-colors ml-1"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+{/*  Inferred Badge 2  */}
+<div className="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-indigo/10 border border-zen-indigo/30 text-white text-xs font-medium">
+<span className="material-symbols-outlined text-[13px] text-zen-indigo-light">auto_awesome</span>
+<span>Volunteer Facilitation &amp; Leadership</span>
+<span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-indigo/20 text-zen-indigo-light">Inferred</span>
+<button className="text-zen-text-faint hover:text-white transition-colors ml-1"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+{/*  Inferred Badge 3  */}
+<div className="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-cyan/10 border border-zen-cyan/30 text-white text-xs font-medium">
+<span className="material-symbols-outlined text-[13px] text-zen-cyan">auto_awesome</span>
+<span>Budget Tracking &amp; Pivot Tables</span>
+<span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-cyan/20 text-zen-cyan">Inferred</span>
+<button className="text-zen-text-faint hover:text-white transition-colors ml-1"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+{/*  Inferred Badge 4  */}
+<div className="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-emerald/10 border border-zen-emerald/30 text-white text-xs font-medium">
+<span className="material-symbols-outlined text-[13px] text-zen-emerald">auto_awesome</span>
+<span>Python Scripting &amp; Bot Automation</span>
+<span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-emerald/20 text-zen-emerald">Inferred</span>
+<button className="text-zen-text-faint hover:text-white transition-colors ml-1"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+{/*  Inferred Badge 5  */}
+<div className="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-indigo/10 border border-zen-indigo/30 text-white text-xs font-medium">
+<span className="material-symbols-outlined text-[13px] text-zen-indigo-light">auto_awesome</span>
+<span>Survey Design &amp; Feedback Synthesis</span>
+<span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-indigo/20 text-zen-indigo-light">Inferred</span>
+<button className="text-zen-text-faint hover:text-white transition-colors ml-1"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+{/*  Inferred Badge 6  */}
+<div className="skill-badge-item group flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zen-cyan/10 border border-zen-cyan/30 text-white text-xs font-medium">
+<span className="material-symbols-outlined text-[13px] text-zen-cyan">auto_awesome</span>
+<span>Stakeholder Metric Reporting</span>
+<span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zen-cyan/20 text-zen-cyan">Inferred</span>
+<button className="text-zen-text-faint hover:text-white transition-colors ml-1"  title="Remove skill" type="button">
+<span className="material-symbols-outlined text-[13px]">close</span>
+</button>
+</div>
+</div>
+</div>
+{/*  Actions Bar  */}
+<div className="pt-4 border-t border-zen-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+<button className="text-xs text-zen-text-muted hover:text-white transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Back to edit description</span>
+</button>
+<button className="w-full sm:w-auto px-8 py-3 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white font-bold text-sm tracking-wide shadow-2xl transition-all flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer"  type="button">
+<span>Show career matches</span>
+<span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+{/*  =========================================================================
+     STAGE 3: EXPLORE CAREERS (Transparent, Structured Match Cards)
+     =========================================================================  */}
+<div className="hidden w-full max-w-5xl mx-auto space-y-8" id="stage-3-container">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-zen-border gap-3">
+<div>
+<div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zen-emerald/10 border border-zen-emerald/30 text-zen-emerald text-[11px] font-mono mb-1.5">
+<span>STAGE 3</span>
+<span>•</span>
+<span>3 VETTED RECOMMENDATIONS</span>
+</div>
+<h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">Explore Careers Matching Your Profile</h2>
+<p className="text-xs text-zen-text-muted mt-0.5 leading-relaxed">
+        Recommendations reflect capability overlap derived from your experience, not hiring guarantees.
+      </p>
+</div>
+<button className="px-3.5 py-1.5 rounded-xl border border-zen-border hover:border-zen-indigo bg-zen-card text-white text-xs font-semibold flex items-center gap-1.5 transition-all self-start sm:self-auto"  type="button">
+<span className="material-symbols-outlined text-[15px] text-zen-indigo-light">tune</span>
+<span>Adjust skills</span>
+</button>
+</div>
+{/*  3 Structured Career Cards  */}
+<div className="space-y-5">
+{/*  Card 1: Project Coordinator / Operations Associate  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-5 shadow-xl hover:border-zen-indigo/50 transition-all duration-300">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div className="space-y-1">
+<div className="flex items-center gap-2">
+<span className="px-2.5 py-0.5 rounded-full bg-zen-indigo/15 border border-zen-indigo/30 text-zen-indigo-light text-[10px] font-mono font-semibold uppercase tracking-wider">High Alignment</span>
+<span className="text-xs font-mono text-zen-text-faint">Operations &amp; Execution</span>
+</div>
+<h3 className="text-lg font-bold text-white">Project Coordinator / Operations Associate</h3>
+</div>
+<button className="px-4 py-2 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm shrink-0"  type="button">
+<span>Explore this career &amp; view plan</span>
+<span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+        Plans, tracks, and aligns cross-functional team execution, budgets, and operational schedules across business or tech projects.
+      </p>
+{/*  Why suggested  */}
+<div className="p-3.5 rounded-xl bg-zen-card border border-zen-border space-y-1.5">
+<div className="text-[11px] font-mono text-zen-indigo-light uppercase font-semibold flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">help_outline</span>
+<span>Why this career was suggested</span>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+          You coordinated 18 volunteers across a 120-attendee sprint and managed a $4,500 budget with spreadsheet models. This directly mirrors day-to-day operations logistics.
+        </p>
+</div>
+{/*  Relevant Skills vs Skills to develop  */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+<div className="space-y-2">
+<span className="text-[11px] font-mono text-zen-emerald flex items-center gap-1 uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span> Relevant skills found
+          </span>
+<div className="flex flex-wrap gap-1.5">
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Logistics Planning</span>
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Budget Tracking</span>
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Team Facilitation</span>
+</div>
+</div>
+<div className="space-y-2">
+<span className="text-[11px] font-mono text-zen-text-faint flex items-center gap-1 uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-text-faint"></span> Skills to develop
+          </span>
+<div className="flex flex-wrap gap-1.5">
+<span className="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Agile / Scrum Rituals</span>
+<span className="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Asana / Jira Workflows</span>
+</div>
+</div>
+</div>
+</div>
+{/*  Card 2: Data Analyst & Insights Specialist  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-5 shadow-xl hover:border-zen-cyan/50 transition-all duration-300">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div className="space-y-1">
+<div className="flex items-center gap-2">
+<span className="px-2.5 py-0.5 rounded-full bg-zen-cyan/15 border border-zen-cyan/30 text-zen-cyan text-[10px] font-mono font-semibold uppercase tracking-wider">High Alignment</span>
+<span className="text-xs font-mono text-zen-text-faint">Data &amp; Business Intelligence</span>
+</div>
+<h3 className="text-lg font-bold text-white">Data Analyst &amp; Insights Specialist</h3>
+</div>
+<button className="px-4 py-2 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm shrink-0"  type="button">
+<span>Explore this career &amp; view plan</span>
+<span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+        Transforms raw operational data and survey responses into actionable KPI dashboards and commercial business insights.
+      </p>
+{/*  Why suggested  */}
+<div className="p-3.5 rounded-xl bg-zen-card border border-zen-border space-y-1.5">
+<div className="text-[11px] font-mono text-zen-cyan uppercase font-semibold flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">help_outline</span>
+<span>Why this career was suggested</span>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+          Your use of spreadsheet pivot tables for budget tracking, automated Python scripts, and metric survey synthesis demonstrates foundational analytical data handling.
+        </p>
+</div>
+{/*  Relevant Skills vs Skills to develop  */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+<div className="space-y-2">
+<span className="text-[11px] font-mono text-zen-emerald flex items-center gap-1 uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span> Relevant skills found
+          </span>
+<div className="flex flex-wrap gap-1.5">
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Python Scripting</span>
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Pivot Tables</span>
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Feedback Synthesis</span>
+</div>
+</div>
+<div className="space-y-2">
+<span className="text-[11px] font-mono text-zen-text-faint flex items-center gap-1 uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-text-faint"></span> Skills to develop
+          </span>
+<div className="flex flex-wrap gap-1.5">
+<span className="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Relational SQL Indexing</span>
+<span className="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Tableau / PowerBI</span>
+</div>
+</div>
+</div>
+</div>
+{/*  Card 3: Learning Experience & Community Designer  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-5 shadow-xl hover:border-zen-emerald/50 transition-all duration-300">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div className="space-y-1">
+<div className="flex items-center gap-2">
+<span className="px-2.5 py-0.5 rounded-full bg-zen-emerald/15 border border-zen-emerald/30 text-zen-emerald text-[10px] font-mono font-semibold uppercase tracking-wider">Asymmetric Fit</span>
+<span className="text-xs font-mono text-zen-text-faint">EdTech &amp; Developer Relations</span>
+</div>
+<h3 className="text-lg font-bold text-white">Learning Experience &amp; Community Designer</h3>
+</div>
+<button className="px-4 py-2 rounded-xl bg-zen-indigo hover:bg-indigo-500 text-white text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm shrink-0"  type="button">
+<span>Explore this career &amp; view plan</span>
+<span className="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+        Crafts participatory learning modules, community onboarding scaffolding, and interactive documentation for technical audiences.
+      </p>
+{/*  Why suggested  */}
+<div className="p-3.5 rounded-xl bg-zen-card border border-zen-border space-y-1.5">
+<div className="text-[11px] font-mono text-zen-emerald uppercase font-semibold flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">help_outline</span>
+<span>Why this career was suggested</span>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+          Building a custom Discord bot to automate updates and synthesizing participant feedback demonstrates an intuitive grasp of asynchronous community workflows.
+        </p>
+</div>
+{/*  Relevant Skills vs Skills to develop  */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs pt-1">
+<div className="space-y-2">
+<span className="text-[11px] font-mono text-zen-emerald flex items-center gap-1 uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-emerald"></span> Relevant skills found
+          </span>
+<div className="flex flex-wrap gap-1.5">
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Community Onboarding</span>
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Bot Scripting</span>
+<span className="px-2 py-0.5 rounded bg-zen-emerald/10 border border-zen-emerald/20 text-zen-emerald text-[11px]">Event Facilitation</span>
+</div>
+</div>
+<div className="space-y-2">
+<span className="text-[11px] font-mono text-zen-text-faint flex items-center gap-1 uppercase font-semibold">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-text-faint"></span> Skills to develop
+          </span>
+<div className="flex flex-wrap gap-1.5">
+<span className="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Curriculum Architecture</span>
+<span className="px-2 py-0.5 rounded bg-zen-surface border border-dashed border-zen-border text-zen-text-muted text-[11px]">Interactive Sandbox Design</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+{/*  Bottom Navigation Buttons  */}
+<div className="pt-4 border-t border-zen-border-subtle flex items-center justify-between">
+<button className="text-xs text-zen-text-muted hover:text-white transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Back to skills</span>
+</button>
+<span className="text-xs font-mono text-zen-text-faint">Select any career card to inspect its actionable learning plan</span>
+</div>
+</div>
+{/*  =========================================================================
+     STAGE 4: DEDICATED LEARNING ROADMAP (Upon Career Selection)
+     =========================================================================  */}
+<div className="hidden w-full max-w-5xl mx-auto space-y-8" id="stage-4-container">
+{/*  Roadmap Banner for Selected Career  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-xl">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 border-b border-zen-border-subtle">
+<div className="space-y-1">
+<div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zen-indigo/15 text-zen-indigo-light text-[11px] font-mono font-semibold uppercase">
+<span className="w-1.5 h-1.5 rounded-full bg-zen-indigo"></span>
+<span>ACTIVE LEARNING PLAN</span>
+</div>
+<h2 className="text-xl sm:text-2xl font-bold text-white" id="roadmap-career-title">Data Analyst &amp; Insights Specialist</h2>
+</div>
+{/*  Quick switch career dropdown  */}
+<div className="flex items-center gap-2 shrink-0">
+<label className="text-xs font-mono text-zen-text-faint" htmlFor="plan-career-selector">Switch Plan:</label>
+<select className="bg-zen-card border border-zen-border rounded-xl text-xs text-white px-3 py-2 focus:ring-2 focus:ring-zen-indigo focus:border-zen-indigo cursor-pointer" id="plan-career-selector" >
+<option value="coord">Project Coordinator</option>
+<option selected="" value="analyst">Data Analyst</option>
+<option value="designer">Learning Experience Designer</option>
+</select>
+<button className="px-3 py-2 rounded-xl bg-zen-card border border-zen-border hover:border-zen-text-muted text-zen-text-muted hover:text-white text-xs font-mono transition-colors flex items-center gap-1"  type="button">
+<span className="material-symbols-outlined text-[14px]">grid_view</span>
+<span>All Careers</span>
+</button>
+</div>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
+<div className="p-3 rounded-xl bg-zen-card border border-zen-border space-y-1">
+<span className="text-[11px] font-mono text-zen-indigo-light uppercase font-semibold flex items-center gap-1">
+<span className="material-symbols-outlined text-[13px]">verified</span>
+          Why this roadmap was generated
+        </span>
+<p className="text-zen-text-muted text-[11px] leading-relaxed" id="roadmap-why-text">
+          Builds on your spreadsheet pivot tables and basic Python scripting to unlock commercial data warehouse analysis and dashboard storytelling.
+        </p>
+</div>
+<div className="p-3 rounded-xl bg-zen-card border border-zen-border space-y-1">
+<span className="text-[11px] font-mono text-zen-emerald uppercase font-semibold flex items-center gap-1">
+<span className="material-symbols-outlined text-[13px]">flag</span>
+          Priority skill gaps targeted
+        </span>
+<p className="text-zen-text-muted text-[11px] leading-relaxed" id="roadmap-gaps-text">
+          Relational SQL query optimization, automated ETL orchestration, and executive KPI dashboard visualization.
+        </p>
+</div>
+</div>
+</div>
+{/*  3 Milestones: Fundamentals, Realistic Project, Portfolio Delivery  */}
+<div className="space-y-5" id="milestone-list-container">
+{/*  Milestone 1  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-lg transition-all" id="m-card-1">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div className="flex items-center gap-2.5">
+<span className="px-2.5 py-0.5 rounded-lg bg-zen-indigo/15 text-zen-indigo-light font-mono font-bold text-xs">Milestone 1</span>
+<h3 className="text-base font-bold text-white">Learn the Fundamentals: SQL Indexing &amp; Relational Queries</h3>
+</div>
+<label className="inline-flex items-center gap-2 cursor-pointer text-xs text-zen-text-faint hover:text-zen-emerald select-none">
+<input className="w-4 h-4 rounded bg-zen-card border-zen-border text-zen-emerald focus:ring-0 focus:ring-offset-0 cursor-pointer"  type="checkbox"/>
+<span className="text-[11px] font-mono">Mark as practiced (self-tracked)</span>
+</label>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+<strong>Specific Task:</strong> Master multi-table INNER/LEFT joins, GROUP BY aggregations, and execution plans to query structured transactional schemas efficiently.
+      </p>
+<div className="p-3.5 rounded-xl bg-zen-card border border-zen-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div className="space-y-0.5">
+<div className="flex items-center gap-2">
+<span className="font-medium text-white">Stanford CS145: Practical Query Optimization &amp; Indexing</span>
+<span className="px-1.5 py-0.2 rounded bg-zen-surface border border-zen-border text-zen-cyan font-mono text-[10px]">stanford.edu</span>
+</div>
+<p className="text-zen-text-faint text-[11px]">Free academic lab module focusing on relational engine speed and execution trees.</p>
+</div>
+<a className="px-3 py-1.5 rounded-lg bg-zen-surface hover:bg-zen-border border border-zen-border text-zen-cyan hover:text-white font-mono text-[11px] flex items-center justify-center gap-1 transition-colors shrink-0" href="https://stanford.edu" rel="noopener noreferrer" target="_blank">
+<span>Open Resource</span>
+<span className="material-symbols-outlined text-[13px]">launch</span>
+</a>
+</div>
+</div>
+{/*  Milestone 2  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-lg transition-all" id="m-card-2">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div className="flex items-center gap-2.5">
+<span className="px-2.5 py-0.5 rounded-lg bg-zen-cyan/15 text-zen-cyan font-mono font-bold text-xs">Milestone 2</span>
+<h3 className="text-base font-bold text-white">Practice with a Realistic Project: Cohort Retention Pipeline</h3>
+</div>
+<label className="inline-flex items-center gap-2 cursor-pointer text-xs text-zen-text-faint hover:text-zen-emerald select-none">
+<input className="w-4 h-4 rounded bg-zen-card border-zen-border text-zen-emerald focus:ring-0 focus:ring-offset-0 cursor-pointer"  type="checkbox"/>
+<span className="text-[11px] font-mono">Mark as practiced (self-tracked)</span>
+</label>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+<strong>Specific Task:</strong> Ingest raw CSV/event records from your past project, clean missing records using Python/Pandas, and run window functions to calculate 30-day user return rates.
+      </p>
+<div className="p-3.5 rounded-xl bg-zen-card border border-zen-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div className="space-y-0.5">
+<div className="flex items-center gap-2">
+<span className="font-medium text-white">Mode Analytics: Advanced SQL Window Guide &amp; Cohort Modeling</span>
+<span className="px-1.5 py-0.2 rounded bg-zen-surface border border-zen-border text-zen-cyan font-mono text-[10px]">mode.com</span>
+</div>
+<p className="text-zen-text-faint text-[11px]">Hands-on tutorials using real user event sequences and rolling window calculations.</p>
+</div>
+<a className="px-3 py-1.5 rounded-lg bg-zen-surface hover:bg-zen-border border border-zen-border text-zen-cyan hover:text-white font-mono text-[11px] flex items-center justify-center gap-1 transition-colors shrink-0" href="https://mode.com" rel="noopener noreferrer" target="_blank">
+<span>Open Resource</span>
+<span className="material-symbols-outlined text-[13px]">launch</span>
+</a>
+</div>
+</div>
+{/*  Milestone 3  */}
+<div className="rounded-2xl border border-zen-border bg-zen-surface p-6 space-y-4 shadow-lg transition-all" id="m-card-3">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div className="flex items-center gap-2.5">
+<span className="px-2.5 py-0.5 rounded-lg bg-zen-emerald/15 text-zen-emerald font-mono font-bold text-xs">Milestone 3</span>
+<h3 className="text-base font-bold text-white">Demonstrate Your Skills: Interactive Portfolio Artifact</h3>
+</div>
+<label className="inline-flex items-center gap-2 cursor-pointer text-xs text-zen-text-faint hover:text-zen-emerald select-none">
+<input className="w-4 h-4 rounded bg-zen-card border-zen-border text-zen-emerald focus:ring-0 focus:ring-offset-0 cursor-pointer"  type="checkbox"/>
+<span className="text-[11px] font-mono">Mark as practiced (self-tracked)</span>
+</label>
+</div>
+<p className="text-xs text-zen-text-muted leading-relaxed font-sans">
+<strong>Specific Task:</strong> Package your queries and visualizations into a public GitHub repository with an executive README, reproducibility steps, and a live Streamlit dashboard link.
+      </p>
+<div className="p-3.5 rounded-xl bg-zen-card border border-zen-border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+<div className="space-y-0.5">
+<div className="flex items-center gap-2">
+<span className="font-medium text-white">GitHub Octoverse: Open Portfolio Standards for Analysts</span>
+<span className="px-1.5 py-0.2 rounded bg-zen-surface border border-zen-border text-zen-cyan font-mono text-[10px]">github.blog</span>
+</div>
+<p className="text-zen-text-faint text-[11px]">Best practices for documenting data schemas, query assumptions, and visual summaries.</p>
+</div>
+<a className="px-3 py-1.5 rounded-lg bg-zen-surface hover:bg-zen-border border border-zen-border text-zen-cyan hover:text-white font-mono text-[11px] flex items-center justify-center gap-1 transition-colors shrink-0" href="https://github.blog" rel="noopener noreferrer" target="_blank">
+<span>Open Resource</span>
+<span className="material-symbols-outlined text-[13px]">launch</span>
+</a>
+</div>
+</div>
+</div>
+{/*  Bottom Controls  */}
+<div className="pt-4 border-t border-zen-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
+<button className="text-xs text-zen-text-muted hover:text-white transition-colors flex items-center gap-1.5"  type="button">
+<span className="material-symbols-outlined text-[15px]">arrow_back</span>
+<span>Back to career recommendations</span>
+</button>
+<button className="px-4 py-2 rounded-xl bg-zen-card hover:bg-zen-border border border-zen-border text-white text-xs font-semibold flex items-center gap-1.5 transition-all"  type="button">
+<span className="material-symbols-outlined text-[15px] text-zen-indigo-light">restart_alt</span>
+<span>Start another discovery</span>
+</button>
+</div>
+</div>
+{/*  AUDIENCE ALIGNMENT CARDS  */}
+<section className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10 border-t border-zen-border">
+<div className="p-6 rounded-2xl bg-zen-surface border border-zen-border hover:border-zen-indigo/30 transition-all space-y-2">
+<div className="w-8 h-8 rounded-lg bg-zen-indigo/10 border border-zen-indigo/20 flex items-center justify-center text-zen-indigo mb-2">
+<span className="material-symbols-outlined text-[18px]">school</span>
+</div>
+<h4 className="text-sm font-semibold text-white">College Grads &amp; Labs</h4>
+<p className="text-xs text-zen-text-muted leading-relaxed">Translates dense lab coursework and senior codebases into verifiable commercial qualifications without needing 2+ years of prior formal title experience.</p>
+</div>
+<div className="p-6 rounded-2xl bg-zen-surface border border-zen-border hover:border-zen-cyan/30 transition-all space-y-2">
+<div className="w-8 h-8 rounded-lg bg-zen-cyan/10 border border-zen-cyan/20 flex items-center justify-center text-zen-cyan mb-2">
+<span className="material-symbols-outlined text-[18px]">swap_horiz</span>
+</div>
+<h4 className="text-sm font-semibold text-white">Career Switchers</h4>
+<p className="text-xs text-zen-text-muted leading-relaxed">Extracts latent transferable meta-skills. Discover high-leverage adjacent domains where your unique multi-disciplinary background provides asymmetric advantage.</p>
+</div>
+<div className="p-6 rounded-2xl bg-zen-surface border border-zen-border hover:border-zen-emerald/30 transition-all space-y-2">
+<div className="w-8 h-8 rounded-lg bg-zen-emerald/10 border border-zen-emerald/20 flex items-center justify-center text-zen-emerald mb-2">
+<span className="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<h4 className="text-sm font-semibold text-white">Self-Taught Builders</h4>
+<p className="text-xs text-zen-text-muted leading-relaxed">Scores live repository commits, deployed web tools, and Discord moderation systems. Replaces arbitrary pedagogical pedigree with proof of output.</p>
+</div>
+</section>
+{/*  COMPLIANCE & LEGAL NOTICE  */}
+<section className="text-center pt-4 pb-2 border-t border-zen-border space-y-2 font-mono">
+<p className="text-xs text-zen-cyan max-w-3xl mx-auto leading-relaxed">
+<span className="font-bold">Notice:</span> Research is informational and does not guarantee employment or career outcomes.
+  </p>
+<p className="text-[11px] text-zen-text-faint max-w-3xl mx-auto leading-relaxed font-sans">
+<span className="text-zen-text-muted font-medium font-mono">Legal Notice:</span> CareerMatch AI provides exploratory career guidance and skills mapping based on labor market research, not formal employment, salary, visa, legal, or financial advice.
+  </p>
+</section></main>

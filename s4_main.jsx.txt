@@ -1,0 +1,580 @@
+<main className="flex-1 w-full max-w-6xl mx-auto px-6 sm:px-8 pt-12 pb-24 space-y-20"><div className="flex flex-col w-full">
+{/*  Progress Breadcrumb / Step Indicator (Step 4 Active)  */}
+<section className="w-full mb-8">
+<div className="bg-surface-container-low rounded-xl p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+<div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0">
+{/*  Step 1 Complete  */}
+<a className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors shrink-0" href="#intake">
+<span className="w-5 h-5 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-label-sm text-label-sm">
+<span className="material-symbols-outlined text-[12px]" style={{"fontVariationSettings":"'FILL' 1"}}>check</span>
+</span>
+<span className="font-label-md text-label-md">1. Intake</span>
+</a>
+<span className="text-outline-variant font-label-sm text-label-sm shrink-0">/</span>
+{/*  Step 2 Complete  */}
+<a className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors shrink-0" href="#skills">
+<span className="w-5 h-5 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-label-sm text-label-sm">
+<span className="material-symbols-outlined text-[12px]" style={{"fontVariationSettings":"'FILL' 1"}}>check</span>
+</span>
+<span className="font-label-md text-label-md">2. Skills</span>
+</a>
+<span className="text-outline-variant font-label-sm text-label-sm shrink-0">/</span>
+{/*  Step 3 Complete  */}
+<a className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors shrink-0" href="#careers">
+<span className="w-5 h-5 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-label-sm text-label-sm">
+<span className="material-symbols-outlined text-[12px]" style={{"fontVariationSettings":"'FILL' 1"}}>check</span>
+</span>
+<span className="font-label-md text-label-md">3. Careers</span>
+</a>
+<span className="text-outline-variant font-label-sm text-label-sm shrink-0">/</span>
+{/*  Step 4 Active  */}
+<div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-primary text-on-primary shadow-md shrink-0">
+<span className="w-5 h-5 rounded-full bg-on-primary text-primary flex items-center justify-center font-label-sm text-label-sm font-bold">4</span>
+<span className="font-label-md text-label-md font-bold">4. Roadmap</span>
+</div>
+</div>
+{/*  Live Calculation Pill  */}
+<div className="flex items-center gap-3 shrink-0 self-end md:self-auto">
+<div className="flex items-center gap-2 bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant font-label-sm text-label-sm">
+<span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>Overall Readiness: <strong className="text-tertiary font-data-metric text-data-metric text-sm" id="progress-percentage-label">70%</strong></span>
+</div>
+</div>
+</div>
+</section>
+{/*  Section 1: Selected Career Header Card  */}
+<section className="w-full mb-12">
+{/*  Return Link  */}
+<div className="mb-4">
+<a className="inline-flex items-center gap-2 font-label-md text-label-md text-primary hover:text-primary-container transition-colors group" href="#return-to-matches" >
+<span className="material-symbols-outlined text-[16px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span>Change Career (Return to matches)</span>
+</a>
+</div>
+{/*  Master Header Card  */}
+<div className="relative bg-surface-container-low rounded-xl p-8 sm:p-10 shadow-xl overflow-hidden">
+{/*  Ambient computational glow overlay  */}
+<div className="absolute -right-24 -top-24 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div className="absolute -left-20 -bottom-20 w-80 h-80 bg-tertiary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+<div className="relative z-10 flex flex-col lg:flex-row lg:items-start justify-between gap-8">
+{/*  Main Info  */}
+<div className="flex-1 space-y-4">
+<div className="flex flex-wrap items-center gap-3">
+<span className="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">
+              Selected Pathway
+            </span>
+<span className="px-3 py-1 rounded-full bg-surface-container-high text-tertiary font-label-sm text-label-sm flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">verified</span>
+              70% High Affinity Match
+            </span>
+<span className="text-on-surface-variant font-body-sm text-body-sm flex items-center gap-1">
+<span className="material-symbols-outlined text-[14px]">timer</span>
+              ~33 Hours Estimated Completion
+            </span>
+</div>
+<h1 className="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+            Learning Plan: Project Coordinator &amp; Operations Lead
+          </h1>
+<p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+            A structured, milestone-driven pathway to bridge priority skill gaps from your university sprint experience to commercial project coordination.
+          </p>
+<div className="bg-surface-container rounded-xl p-5 shadow-sm space-y-2 mt-4">
+<div className="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span className="material-symbols-outlined text-[18px]">psychology</span>
+<span>Why CareerMatch AI Recommended This Pathway</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface leading-normal">
+              You already possess 70% of the foundational skills (volunteer coordination, budget tracking, event operations). This plan focuses on industry-standard tooling and delivery frameworks to make you commercially competitive in fast-paced teams.
+            </p>
+</div>
+</div>
+{/*  Telemetry & Readout Panel  */}
+<div className="lg:w-80 w-full bg-surface-container rounded-xl p-6 shadow-md flex flex-col justify-between shrink-0 space-y-6">
+<div className="space-y-4">
+<div className="flex items-center justify-between">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Milestone Velocity</span>
+<span className="font-label-sm text-label-sm text-primary">Self-Paced</span>
+</div>
+{/*  Progress Radial + Counter  */}
+<div className="flex items-center gap-4">
+<div className="relative w-16 h-16 shrink-0 flex items-center justify-center">
+<svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+<path className="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="3.5"></path>
+<path className="text-tertiary transition-all duration-500 ease-out" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" id="svg-progress-bar" stroke="currentColor" strokeDasharray="0, 100" strokeLinecap="round" strokeWidth="3.5"></path>
+</svg>
+<span className="absolute font-data-metric text-data-metric text-xs text-on-surface" id="tracker-counter">0/3</span>
+</div>
+<div className="space-y-1">
+<div className="font-label-md text-label-md text-on-surface">Milestones Logged</div>
+<div className="font-body-sm text-body-sm text-on-surface-variant" id="milestones-status-subtext">3 actions remaining</div>
+</div>
+</div>
+</div>
+<div className="pt-4 bg-surface-container-high/40 -mx-6 -mb-6 p-6 rounded-b-xl space-y-2">
+<div className="font-label-sm text-label-sm text-on-surface-variant uppercase">Target Employment Level</div>
+<div className="font-headline-sm text-headline-sm text-on-surface">Associate to Mid-Level</div>
+<div className="font-body-sm text-body-sm text-tertiary flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">trending_up</span>
+              Median Salary Range: $62k – $84k
+            </div>
+</div>
+</div>
+</div>
+{/*  Skills Taxonomy Matrix Row  */}
+<div className="mt-8 pt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+{/*  Existing Skills to Leverage  */}
+<div className="bg-surface-container p-5 rounded-xl shadow-sm space-y-3">
+<div className="flex items-center justify-between">
+<div className="flex items-center gap-2 text-tertiary font-label-md text-label-md">
+<span className="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Existing Skills to Leverage</span>
+</div>
+<span className="font-label-sm text-label-sm text-tertiary bg-tertiary-container/30 px-2 py-0.5 rounded-full">Validated 70%</span>
+</div>
+<div className="flex flex-wrap gap-2">
+<span className="px-3 py-1 rounded-lg bg-surface-container-high text-tertiary font-label-md text-label-md flex items-center gap-1.5">
+<span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Volunteer Coordination
+            </span>
+<span className="px-3 py-1 rounded-lg bg-surface-container-high text-tertiary font-label-md text-label-md flex items-center gap-1.5">
+<span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Budget Spreadsheets
+            </span>
+<span className="px-3 py-1 rounded-lg bg-surface-container-high text-tertiary font-label-md text-label-md flex items-center gap-1.5">
+<span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Stakeholder Reporting
+            </span>
+<span className="px-3 py-1 rounded-lg bg-surface-container-high text-tertiary font-label-md text-label-md flex items-center gap-1.5">
+<span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Event Logistics
+            </span>
+</div>
+</div>
+{/*  Priority Skill Gaps to Bridge  */}
+<div className="bg-surface-container p-5 rounded-xl shadow-sm space-y-3">
+<div className="flex items-center justify-between">
+<div className="flex items-center gap-2 text-primary font-label-md text-label-md">
+<span className="material-symbols-outlined text-[16px]">bolt</span>
+<span>Priority Skill Gaps to Bridge</span>
+</div>
+<span className="font-label-sm text-label-sm text-primary font-mono bg-primary/10 px-2 py-0.5 rounded-full">3 Target Units</span>
+</div>
+<div className="flex flex-wrap gap-2">
+<span className="px-3 py-1 rounded-lg bg-primary-container/20 text-primary font-label-md text-label-md flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">terminal</span>
+              Agile / Kanban Frameworks
+            </span>
+<span className="px-3 py-1 rounded-lg bg-primary-container/20 text-primary font-label-md text-label-md flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">view_kanban</span>
+              Asana/Jira Project Boards
+            </span>
+<span className="px-3 py-1 rounded-lg bg-primary-container/20 text-primary font-label-md text-label-md flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px]">shield</span>
+              Risk Management Plans
+            </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/*  Visual Transition Divider / Context Banner  */}
+<div className="w-full flex items-center justify-between gap-4 mb-6 px-2">
+<div className="flex items-center gap-2">
+<span className="material-symbols-outlined text-primary text-[20px]">timeline</span>
+<h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">Milestone-Driven Execution Roadmap</h2>
+</div>
+<span className="font-label-sm text-label-sm text-on-surface-variant font-mono">EXECUTION ORDER: SEQUENTIAL (M1 → M3)</span>
+</div>
+{/*  Section 2: Milestone Cards (3 Clear Milestones)  */}
+<section className="w-full space-y-8 mb-16">
+{/*  Milestone 1  */}
+<div className="bg-surface-container-low rounded-xl p-6 sm:p-8 shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden group" id="milestone-card-1">
+{/*  Milestone Number Marker Overline  */}
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
+<div className="flex items-center gap-3">
+<span className="w-8 h-8 rounded-lg bg-surface-container text-primary font-headline-sm text-headline-sm flex items-center justify-center font-mono">01</span>
+<div>
+<span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-mono">Phase 1: Foundations</span>
+<h3 className="font-headline-md text-headline-md text-on-surface">Learn the Fundamentals (Tools &amp; Workflows)</h3>
+</div>
+</div>
+<div className="flex items-center gap-3">
+<span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span className="material-symbols-outlined text-[14px]">schedule</span>
+            ~10 hours self-paced study
+          </span>
+<span className="px-3 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-medium">Core Theory</span>
+</div>
+</div>
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4">
+{/*  Details Column  */}
+<div className="lg:col-span-8 space-y-5">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div className="bg-surface-container p-4 rounded-xl space-y-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-tertiary">flag</span>
+                Learning Goal
+              </span>
+<p className="font-body-md text-body-md text-on-surface">
+                Understand task estimation, team sprint ceremonies, and standard project documentation structures.
+              </p>
+</div>
+<div className="bg-surface-container p-4 rounded-xl space-y-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-primary">task_alt</span>
+                Practical Task
+              </span>
+<p className="font-body-md text-body-md text-on-surface">
+                Learn Agile task planning principles and build a structured, production-ready project charter.
+              </p>
+</div>
+</div>
+{/*  Tangible Deliverable  */}
+<div className="bg-surface-container p-5 rounded-xl space-y-2">
+<div className="flex items-center justify-between">
+<span className="font-label-md text-label-md text-tertiary flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[16px]">inventory_2</span>
+                Tangible Deliverable
+              </span>
+<span className="font-label-sm text-label-sm text-on-surface-variant font-mono">Portfolio Proof-Point #1</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface font-medium">
+              Create a complete event project plan and RACI matrix in Notion or Google Docs for a 50-person seminar.
+            </p>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Includes risk registers, communication cadence schedules, and budget accountability sign-offs.
+            </p>
+</div>
+{/*  Open Learning Resource  */}
+<div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">Open Verified Resources:</span>
+<a className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary hover:text-on-surface transition-colors font-label-md text-label-md" href="https://www.atlassian.com/agile" rel="noopener noreferrer" target="_blank">
+<span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              Atlassian Agile Coach (Free verified guide)
+            </a>
+<a className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary hover:text-on-surface transition-colors font-label-md text-label-md" href="https://www.coursera.org" rel="noopener noreferrer" target="_blank">
+<span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              Coursera Project Initiation Module
+            </a>
+</div>
+</div>
+{/*  Interactive Checklist Action Card  */}
+<div className="lg:col-span-4 bg-surface-container rounded-xl p-6 flex flex-col justify-between space-y-6">
+<div className="space-y-3">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">Milestone Status</span>
+<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm" id="m1-badge-status">
+<span className="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              Incomplete (Pending Action)
+            </div>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Tick this step after completing the RACI matrix document. This updates your career readiness index instantly.
+            </p>
+</div>
+{/*  Interactive Control  */}
+<label className="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 cursor-pointer transition-colors">
+<input className="mt-1 w-5 h-5 rounded bg-surface border-0 text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer accent-indigo-500" id="check-milestone-1"  type="checkbox"/>
+<div className="flex-1">
+<span className="font-label-md text-label-md text-on-surface block">Mark milestone 1 as complete</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Self-reported progress</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+{/*  Milestone 2  */}
+<div className="bg-surface-container-low rounded-xl p-6 sm:p-8 shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden group" id="milestone-card-2">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
+<div className="flex items-center gap-3">
+<span className="w-8 h-8 rounded-lg bg-surface-container text-primary font-headline-sm text-headline-sm flex items-center justify-center font-mono">02</span>
+<div>
+<span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-mono">Phase 2: Execution Tooling</span>
+<h3 className="font-headline-md text-headline-md text-on-surface">Practice with a Realistic Project</h3>
+</div>
+</div>
+<div className="flex items-center gap-3">
+<span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span className="material-symbols-outlined text-[14px]">schedule</span>
+            ~15 hours practical execution
+          </span>
+<span className="px-3 py-1 rounded-full bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-medium">Applied Systems</span>
+</div>
+</div>
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4">
+{/*  Details Column  */}
+<div className="lg:col-span-8 space-y-5">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div className="bg-surface-container p-4 rounded-xl space-y-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-tertiary">flag</span>
+                Learning Goal
+              </span>
+<p className="font-body-md text-body-md text-on-surface">
+                Master industry workflow tracking software and agile sprint backlog management.
+              </p>
+</div>
+<div className="bg-surface-container p-4 rounded-xl space-y-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-primary">task_alt</span>
+                Practical Task
+              </span>
+<p className="font-body-md text-body-md text-on-surface">
+                Translate your university sprint tasks into an interactive Kanban board with milestones, assignees, and budget line-items.
+              </p>
+</div>
+</div>
+{/*  Tangible Deliverable  */}
+<div className="bg-surface-container p-5 rounded-xl space-y-2">
+<div className="flex items-center justify-between">
+<span className="font-label-md text-label-md text-tertiary flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[16px]">view_kanban</span>
+                Tangible Deliverable
+              </span>
+<span className="font-label-sm text-label-sm text-on-surface-variant font-mono">Portfolio Proof-Point #2</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface font-medium">
+              Build a functional sample project board with custom automations in Asana or Trello.
+            </p>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Configure custom task tags, SLA escalations, milestone dependency chains, and automated weekly stakeholder summaries.
+            </p>
+</div>
+{/*  Open Learning Resource  */}
+<div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">Open Verified Resources:</span>
+<a className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary hover:text-on-surface transition-colors font-label-md text-label-md" href="https://academy.asana.com" rel="noopener noreferrer" target="_blank">
+<span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              Asana Academy Workflow Foundations
+            </a>
+<a className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary hover:text-on-surface transition-colors font-label-md text-label-md" href="https://monday.com/templates" rel="noopener noreferrer" target="_blank">
+<span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              Monday.com Operational Templates
+            </a>
+</div>
+</div>
+{/*  Interactive Checklist Action Card  */}
+<div className="lg:col-span-4 bg-surface-container rounded-xl p-6 flex flex-col justify-between space-y-6">
+<div className="space-y-3">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">Milestone Status</span>
+<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm" id="m2-badge-status">
+<span className="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              Incomplete (Pending Action)
+            </div>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Verify completion after deploying board rules and linking your sample tasks.
+            </p>
+</div>
+<label className="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 cursor-pointer transition-colors">
+<input className="mt-1 w-5 h-5 rounded bg-surface border-0 text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer accent-indigo-500" id="check-milestone-2"  type="checkbox"/>
+<div className="flex-1">
+<span className="font-label-md text-label-md text-on-surface block">Mark milestone 2 as complete</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Self-reported progress</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+{/*  Milestone 3  */}
+<div className="bg-surface-container-low rounded-xl p-6 sm:p-8 shadow-lg transition-all duration-300 hover:shadow-xl relative overflow-hidden group" id="milestone-card-3">
+<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6">
+<div className="flex items-center gap-3">
+<span className="w-8 h-8 rounded-lg bg-surface-container text-primary font-headline-sm text-headline-sm flex items-center justify-center font-mono">03</span>
+<div>
+<span className="font-label-sm text-label-sm text-primary uppercase tracking-widest font-mono">Phase 3: Impact Showcase</span>
+<h3 className="font-headline-md text-headline-md text-on-surface">Demonstrate Your Skills in a Case Study</h3>
+</div>
+</div>
+<div className="flex items-center gap-3">
+<span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span className="material-symbols-outlined text-[14px]">schedule</span>
+            ~8 hours documentation
+          </span>
+<span className="px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-medium">Hiring Asset</span>
+</div>
+</div>
+<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4">
+{/*  Details Column  */}
+<div className="lg:col-span-8 space-y-5">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div className="bg-surface-container p-4 rounded-xl space-y-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-tertiary">flag</span>
+                Learning Goal
+              </span>
+<p className="font-body-md text-body-md text-on-surface">
+                Articulate your transferable project delivery impact in an interview-ready portfolio narrative.
+              </p>
+</div>
+<div className="bg-surface-container p-4 rounded-xl space-y-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[14px] text-primary">task_alt</span>
+                Practical Task
+              </span>
+<p className="font-body-md text-body-md text-on-surface">
+                Document the design sprint project: problem, scope, volunteer management, budget constraints, and final attendee satisfaction metrics.
+              </p>
+</div>
+</div>
+{/*  Tangible Deliverable  */}
+<div className="bg-surface-container p-5 rounded-xl space-y-2">
+<div className="flex items-center justify-between">
+<span className="font-label-md text-label-md text-tertiary flex items-center gap-1.5">
+<span className="material-symbols-outlined text-[16px]">description</span>
+                Tangible Deliverable
+              </span>
+<span className="font-label-sm text-label-sm text-on-surface-variant font-mono">Portfolio Proof-Point #3</span>
+</div>
+<p className="font-body-md text-body-md text-on-surface font-medium">
+              A 1-page PDF case study or GitHub README highlighting deliverables, metrics ($4.5k budget managed, 120 attendees), and tools used.
+            </p>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Engineered specifically to accompany applications for operations, program delivery, and junior PM roles.
+            </p>
+</div>
+{/*  Open Learning Resource  */}
+<div className="flex flex-wrap items-center gap-4 text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">Open Verified Resources:</span>
+<a className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary hover:text-on-surface transition-colors font-label-md text-label-md" href="https://grow.google/certificates/project-management" rel="noopener noreferrer" target="_blank">
+<span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              Google Project Management Portfolio Guide
+            </a>
+</div>
+</div>
+{/*  Interactive Checklist Action Card  */}
+<div className="lg:col-span-4 bg-surface-container rounded-xl p-6 flex flex-col justify-between space-y-6">
+<div className="space-y-3">
+<span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-mono">Milestone Status</span>
+<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm" id="m3-badge-status">
+<span className="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              Incomplete (Pending Action)
+            </div>
+<p className="font-body-sm text-body-sm text-on-surface-variant">
+              Tick this final step after exporting or publishing your 1-page impact case study.
+            </p>
+</div>
+<label className="flex items-start gap-3 p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 cursor-pointer transition-colors">
+<input className="mt-1 w-5 h-5 rounded bg-surface border-0 text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer accent-indigo-500" id="check-milestone-3"  type="checkbox"/>
+<div className="flex-1">
+<span className="font-label-md text-label-md text-on-surface block">Mark milestone 3 as complete</span>
+<span className="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Self-reported progress</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+{/*  Section 3: Support, Export, & Action Toolbar  */}
+<section className="w-full bg-surface-container-low rounded-xl p-8 shadow-xl mb-12 space-y-6">
+<div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div className="space-y-1">
+<h3 className="font-headline-md text-headline-md text-on-surface">Plan Actions &amp; Portability</h3>
+<p className="font-body-md text-body-md text-on-surface-variant">Export your customized roadmap to Notion or PDF, or link with a mentor to review your RACI draft.</p>
+</div>
+{/*  Action Buttons  */}
+<div className="flex flex-wrap items-center gap-3">
+<button className="px-5 py-2.5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md transition-all flex items-center gap-2 cursor-pointer"  type="button">
+<span className="material-symbols-outlined text-[18px]">download</span>
+<span>Save Learning Plan to PDF / Notion</span>
+</button>
+<button className="px-5 py-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm transition-all flex items-center gap-2 cursor-pointer"  type="button">
+<span className="material-symbols-outlined text-[18px]">share</span>
+<span>Share Plan with a Mentor</span>
+</button>
+<a className="px-4 py-2.5 rounded-lg bg-surface-container-high/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" href="#return-intake" >
+<span className="material-symbols-outlined text-[16px]">tune</span>
+<span>Return to edit experience</span>
+</a>
+</div>
+</div>
+{/*  Explicit Distinction / Trust Note  */}
+<div className="p-4 rounded-xl bg-surface-container flex items-start gap-3.5 text-on-surface-variant">
+<span className="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">info</span>
+<div className="space-y-0.5">
+<span className="font-label-md text-label-md text-on-surface block">Self-Reported Progress Notice</span>
+<p className="font-body-sm text-body-sm leading-relaxed">
+          Checkboxes represent your own personal tracking and do not constitute formal institutional certification, academic credit, or verified qualification. Use these milestones to systematically organize your self-directed portfolio evidence.
+        </p>
+</div>
+</div>
+</section>
+{/*  Interactive State Engine Script  */}
+<script>
+    const completedMilestones = { 1: false, 2: false, 3: false };
+
+    function handleMilestoneToggle(step, checkbox) {
+      completedMilestones[step] = checkbox.checked;
+      
+      const badge = document.getElementById(`m${step}-badge-status`);
+      const card = document.getElementById(`milestone-card-${step}`);
+      
+      if (checkbox.checked) {
+        if (badge) {
+          badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold';
+          badge.innerHTML = '<span className="material-symbols-outlined text-[14px]" style={{"fontVariationSettings":"\\'FILL\\' 1"}}>check_circle</span> Complete (Logged)';
+        }
+        if (card) {
+          card.classList.add('bg-surface-container');
+          card.classList.remove('bg-surface-container-low');
+        }
+      } else {
+        if (badge) {
+          badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-label-sm';
+          badge.innerHTML = '<span className="w-1.5 h-1.5 rounded-full bg-outline"></span> Incomplete (Pending Action)';
+        }
+        if (card) {
+          card.classList.remove('bg-surface-container');
+          card.classList.add('bg-surface-container-low');
+        }
+      }
+
+      updateReadoutProgress();
+    }
+
+    function updateReadoutProgress() {
+      const checkedCount = Object.values(completedMilestones).filter(Boolean).length;
+      const baseReadiness = 70; // baseline affinity
+      const additionalPerStep = 10; // max reaches 100%
+      const newScore = Math.min(100, baseReadiness + (checkedCount * additionalPerStep));
+
+      // Update counters
+      const counterEl = document.getElementById('tracker-counter');
+      if (counterEl) {
+        counterEl.textContent = `${checkedCount}/3`;
+      }
+
+      const subtextEl = document.getElementById('milestones-status-subtext');
+      if (subtextEl) {
+        const remaining = 3 - checkedCount;
+        subtextEl.textContent = remaining === 0 ? 'All milestones fulfilled!' : `${remaining} actions remaining`;
+      }
+
+      const labelEl = document.getElementById('progress-percentage-label');
+      if (labelEl) {
+        labelEl.textContent = `${newScore}%`;
+      }
+
+      // Update SVG circular bar
+      const svgProgress = document.getElementById('svg-progress-bar');
+      if (svgProgress) {
+        const pct = (checkedCount / 3) * 100;
+        svgProgress.setAttribute('stroke-dasharray', `${pct}, 100`);
+      }
+    }
+
+    function handleExportPlan() {
+      const checkedCount = Object.values(completedMilestones).filter(Boolean).length;
+      const exportMsg = `Learning Plan Export initiated.\nPathway: Project Coordinator & Operations Lead\nProgress: ${checkedCount} of 3 milestones marked completed.\n\nFormatting structured template for Notion & PDF...`;
+      alert(exportMsg);
+    }
+
+    function handleShareWithMentor() {
+      const shareUrl = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          alert("Sharable mentor review link copied to clipboard!\nSend this URL to your advisor to review your project milestones.");
+        });
+      } else {
+        alert("Sharable link: " + shareUrl);
+      }
+    }
+  </script>
+</div></main>
